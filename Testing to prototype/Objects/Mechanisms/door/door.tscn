@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Objects/Mechanisms/door/door.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Mechanisms/door/door1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Mechanisms/door/door3.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Mechanisms/door/door2.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Mechanisms/door/door4.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "door",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 46.5, 76.25 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 100.0
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 3.57143, 78.5714 )
+
+[node name="door" type="KinematicBody2D"]
+position = Vector2( -1.00002, 0.999996 )
+scale = Vector2( 0.7, 0.7 )
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 7.21436, -14.5714 )
+frames = SubResource( 1 )
+animation = "door"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 8.64297, 8.5 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 6.64291, -17.25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -34, 23 )
+shape = SubResource( 3 )
+
+[node name="collisionDopr" type="CollisionShape2D" parent="."]
+position = Vector2( 50, 10 )
+shape = SubResource( 4 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
