@@ -10,4 +10,5 @@ position = Vector2( -82, -11 )
 position = Vector2( 160, 96 )
 
 [node name="Entrace" parent="." instance=ExtResource( 2 )]
-position = Vector2( 391, 100 )
+position = Vector2( 386, 14 )
+scene_to_load = ""

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Cutscene/Intro.webm" type="VideoStream" id=1]
+
+[node name="VideoPlayer" type="VideoPlayer"]
+margin_left = -113.0
+margin_top = -40.0
+margin_right = 320.0
+margin_bottom = 207.0
+stream = ExtResource( 1 )
+autoplay = true
