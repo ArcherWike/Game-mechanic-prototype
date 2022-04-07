@@ -4,13 +4,18 @@
 [ext_resource path="res://Cutscene/tv.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Config/SceneEntrace.tscn" type="PackedScene" id=3]
 
-[node name="cutscene" type="Node2D"]
-position = Vector2( 6, -18 )
+[node name="Cutscene" type="Node2D"]
+position = Vector2( 9, -20 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 84, 103 )
 
-[node name="Entrace" parent="." instance=ExtResource( 3 )]
-position = Vector2( 3, 104 )
-
 [node name="tv" parent="." instance=ExtResource( 2 )]
+position = Vector2( 253, 107 )
+
+[node name="Entrace" parent="." instance=ExtResource( 3 )]
+position = Vector2( -3, 107 )
+scene = "Door"
+
+[node name="Position2D" type="Position2D" parent="Entrace"]
+position = Vector2( 60, 0 )

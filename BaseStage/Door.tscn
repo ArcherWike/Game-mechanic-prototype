@@ -8,16 +8,22 @@
 position = Vector2( 6, -18 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 84, 103 )
+position = Vector2( 122, 100 )
 
 [node name="door" parent="." instance=ExtResource( 2 )]
-position = Vector2( 259, 103 )
+position = Vector2( 267, 100 )
 
 [node name="Entrace" parent="door" instance=ExtResource( 3 )]
-position = Vector2( 17.1429, 11.4286 )
+position = Vector2( 41.4286, 4.28572 )
+rotation = 3.14159
 scale = Vector2( 1, 0.8 )
-scene_to_load = "res://Scene/Lever.tscn"
+scene = "Lever"
 
 [node name="Entrace" parent="." instance=ExtResource( 3 )]
-position = Vector2( 3, 104 )
-scene_to_load = "res://Scene/Center.tscn"
+position = Vector2( 0, 107 )
+scene = "Center"
+
+[node name="Entrace2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 124, 18 )
+rotation = 1.5708
+scene = "Colect"

@@ -17,3 +17,12 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity) # porusza gracza o podane velocity i sprawdza kolizje a jak na taką natrafi to się po niej "ślizga"
 
+
+func _on_Entrace_change_scene(_body):
+	pass
+	#var repair_pos = $Entrace/BackPos
+	#repair_pos = get("rect/pos")
+	#self.set_position(get_node(repair_pos))
+	
+
+

@@ -6,20 +6,34 @@ extends Node
 # and `change_scene_to` of the SceneTree. This script demonstrates how to
 # change scenes without those helpers.
 """
+
+func save_scene(last_scene):
+	var path_last_scene = str("res://CurrentSave/",last_scene,".tscn")
+	
+	var scene = PackedScene.new()
+	scene.pack(get_tree().get_current_scene())
+	ResourceSaver.save(path_last_scene, scene)
+	
+
 func goto_scene(path):
 	# This function will usually be called from a signal callback,
 	# or some other function from the running scene.
 	# Deleting the current scene at this point might be
 	# a bad idea, because it may be inside of a callback or function of it.
 	# The worst case will be a crash or unexpected behavior.
-
 	# The way around this is deferring the load to a later time, when
 	# it is ensured that no code from the current scene is running:
 	call_deferred("_deferred_goto_scene", path)
-
-
+	
 func _deferred_goto_scene(path):
-	# Immediately free the current scene, there is no risk here.
+	print("kj")
+	
+	var last_scene = get_tree().get_current_scene().get_name() #the name of the scene we are leaving
+	save_scene(last_scene)
+	#print("Lauren left ",last_scene)
+	print("Lauren go ", path)
+
+
 	get_tree().get_current_scene().free()
 
 	# Load new scene

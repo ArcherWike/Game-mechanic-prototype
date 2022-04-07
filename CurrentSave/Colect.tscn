@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Config/SceneEntrace.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+
+[node name="Colect" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 62.8889, 90 )
+
+[node name="Entrace" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6, 90 )
+scene = "Door"
