@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Config/TitleScreen/Buttons/MenuButton/SaveButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Config/TitleScreen/Buttons/MenuButton/ContinueButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Config/TitleScreen/Buttons/MenuButton/NewGameButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Config/TitleScreen/Buttons/MenuButton/ExitButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Config/TitleScreen/Buttons/MenuButton/OptionButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Config/TitleScreen/Buttons/MenuButton/LoadButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Fonts/Juhaira.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Objects/Concepts/pieczatka.png" type="Texture" id=8]
+[ext_resource path="res://Config/TitleScreen/TitleScreen.gd" type="Script" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 7 )
+
+[node name="TitleScreen" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.176471 )
+anchor_left = -0.116
+anchor_top = -1.277
+anchor_right = -0.116
+anchor_bottom = -1.277
+margin_left = 86.24
+margin_top = 417.64
+margin_right = 7589.24
+margin_bottom = 4638.64
+rect_scale = Vector2( 0.06, 0.06 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 100.0
+margin_bottom = 160.0
+custom_constants/separation = 1
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" parent="Buttons" instance=ExtResource( 2 )]
+margin_right = 360.0
+
+[node name="NewGame" parent="Buttons" instance=ExtResource( 3 )]
+margin_top = 32.0
+margin_right = 360.0
+margin_bottom = 63.0
+
+[node name="Save" parent="Buttons" instance=ExtResource( 1 )]
+margin_top = 64.0
+margin_right = 360.0
+margin_bottom = 95.0
+
+[node name="Load" parent="Buttons" instance=ExtResource( 6 )]
+margin_top = 96.0
+margin_right = 360.0
+margin_bottom = 127.0
+
+[node name="Option" parent="Buttons" instance=ExtResource( 5 )]
+margin_top = 128.0
+margin_right = 360.0
+margin_bottom = 159.0
+
+[node name="Exit" parent="Buttons" instance=ExtResource( 4 )]
+margin_top = 160.0
+margin_right = 360.0
+margin_bottom = 191.0
+
+[node name="VersionLabel" type="Label" parent="."]
+margin_left = 575.0
+margin_top = 276.0
+margin_right = 644.0
+margin_bottom = 317.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "Version 1.0
+Duck Army"
+__meta__ = {
+"_edit_use_anchors_": false
+}

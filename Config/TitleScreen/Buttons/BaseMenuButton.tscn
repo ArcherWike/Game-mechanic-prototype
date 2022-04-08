@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/Fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
+
+[node name="MenuButton" type="Button"]
+margin_right = 640.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 360, 31 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 29.0
+margin_bottom = 19.0
+custom_colors/font_color_shadow = Color( 0.192157, 0.188235, 0.184314, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 1 )
+text = "None"
+__meta__ = {
+"_edit_use_anchors_": false
+}
