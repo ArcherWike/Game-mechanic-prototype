@@ -1,5 +1,9 @@
 extends Node
 
+#OPTION
+var fps_mode = false
+
+
 """"
 			SCENE CONFIG
 # Changing scenes is most easily done using the functions `change_scene`
