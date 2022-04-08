@@ -36,43 +36,144 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option" type="VBoxContainer" parent="."]
-margin_left = 140.0
-margin_top = 60.0
-margin_right = 222.0
-margin_bottom = 176.0
+[node name="ScreenOption" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -525.0
+margin_top = -270.0
+margin_right = -25.0
+margin_bottom = -10.0
+color = Color( 0.662745, 0.662745, 0.662745, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Fullscreen" type="Button" parent="Option"]
-margin_right = 82.0
+[node name="Option" type="VBoxContainer" parent="ScreenOption"]
+margin_left = 25.0
+margin_top = 10.0
+margin_right = 112.0
+margin_bottom = 154.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fullscreen" type="Button" parent="ScreenOption/Option"]
+margin_right = 87.0
 margin_bottom = 20.0
 text = "Fullscreen"
 
-[node name="Minimized" type="Button" parent="Option"]
+[node name="Minimized" type="Button" parent="ScreenOption/Option"]
 margin_top = 24.0
-margin_right = 82.0
+margin_right = 87.0
 margin_bottom = 44.0
 text = "Minimized"
 
-[node name="Maximized" type="Button" parent="Option"]
+[node name="Maximized" type="Button" parent="ScreenOption/Option"]
 margin_top = 48.0
-margin_right = 82.0
+margin_right = 87.0
 margin_bottom = 68.0
 text = "Maximized"
 
-[node name="Screen0" type="Button" parent="Option"]
+[node name="Screen0" type="Button" parent="ScreenOption/Option"]
 margin_top = 72.0
-margin_right = 82.0
+margin_right = 87.0
 margin_bottom = 92.0
 text = "Screen0"
 
-[node name="Screen1" type="Button" parent="Option"]
+[node name="Screen1" type="Button" parent="ScreenOption/Option"]
 margin_top = 96.0
-margin_right = 82.0
+margin_right = 87.0
 margin_bottom = 116.0
 text = "Screen1"
+
+[node name="fps_mode" type="CheckBox" parent="ScreenOption/Option"]
+margin_top = 120.0
+margin_right = 87.0
+margin_bottom = 144.0
+text = "FPS show"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Config" type="Label" parent="ScreenOption/Option/fps_mode"]
+visible = false
+margin_left = -118.0
+margin_top = 95.0
+margin_right = -59.0
+margin_bottom = 109.0
+text = "FPS: 0"
+script = ExtResource( 3 )
+
+[node name="FPS" parent="ScreenOption/Option/fps_mode" instance=ExtResource( 4 )]
+visible = false
+margin_left = -123.0
+margin_top = 107.0
+margin_right = -83.0
+margin_bottom = 121.0
+
+[node name="KeyOption" type="ColorRect" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -525.0
+margin_top = -270.0
+margin_right = -25.0
+margin_bottom = -10.0
+color = Color( 0.662745, 0.662745, 0.662745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option" type="VBoxContainer" parent="KeyOption"]
+margin_left = 25.0
+margin_top = 10.0
+margin_right = 112.0
+margin_bottom = 154.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeSelection" type="ColorRect" parent="."]
+margin_left = 10.0
+margin_top = 50.0
+margin_right = 107.0
+margin_bottom = 183.0
+color = Color( 0.662745, 0.662745, 0.662745, 0.223529 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selection" type="VBoxContainer" parent="ChangeSelection"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 2.0
+margin_right = -3.0
+rect_min_size = Vector2( 85, 133 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Screen" type="Button" parent="ChangeSelection/Selection"]
+modulate = Color( 0.0509804, 0, 0, 0.337255 )
+self_modulate = Color( 0, 0, 0, 0.913725 )
+margin_right = 91.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 86, 15 )
+text = "Screen"
+
+[node name="Keymapping" type="Button" parent="ChangeSelection/Selection"]
+modulate = Color( 0.0509804, 0, 0, 0.337255 )
+self_modulate = Color( 0, 0, 0, 0.913725 )
+margin_top = 24.0
+margin_right = 91.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 86, 15 )
+text = "Keymapping"
 
 [node name="Back" type="Button" parent="."]
 margin_left = 10.0
@@ -83,32 +184,6 @@ rect_min_size = Vector2( 70, 31 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="fps_mode" type="CheckBox" parent="Back"]
-margin_left = 130.0
-margin_top = 194.0
-margin_right = 212.0
-margin_bottom = 218.0
-text = "FPS: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Config" type="Label" parent="Back/fps_mode"]
-visible = false
-margin_left = -118.0
-margin_top = 95.0
-margin_right = -59.0
-margin_bottom = 109.0
-text = "Fps: 0"
-script = ExtResource( 3 )
-
-[node name="FPS" parent="Back/fps_mode" instance=ExtResource( 4 )]
-visible = false
-margin_left = -123.0
-margin_top = 107.0
-margin_right = -83.0
-margin_bottom = 121.0
 
 [node name="Label" type="Label" parent="Back"]
 margin_left = 10.0
@@ -124,10 +199,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="Option/Fullscreen" to="." method="_on_Fullscreen_pressed"]
-[connection signal="pressed" from="Option/Minimized" to="." method="_on_Minimized_pressed"]
-[connection signal="pressed" from="Option/Maximized" to="." method="_on_Maximized_pressed"]
-[connection signal="pressed" from="Option/Screen0" to="." method="_on_Screen0_pressed"]
-[connection signal="pressed" from="Option/Screen1" to="." method="_on_Screen1_pressed"]
+[connection signal="pressed" from="ScreenOption/Option/Fullscreen" to="." method="_on_Fullscreen_pressed"]
+[connection signal="pressed" from="ScreenOption/Option/Minimized" to="." method="_on_Minimized_pressed"]
+[connection signal="pressed" from="ScreenOption/Option/Maximized" to="." method="_on_Maximized_pressed"]
+[connection signal="pressed" from="ScreenOption/Option/Screen0" to="." method="_on_Screen0_pressed"]
+[connection signal="pressed" from="ScreenOption/Option/Screen1" to="." method="_on_Screen1_pressed"]
+[connection signal="toggled" from="ScreenOption/Option/fps_mode" to="ScreenOption/Option/fps_mode/Config" method="_on_fps_mode_toggled"]
+[connection signal="pressed" from="ChangeSelection/Selection/Screen" to="." method="_on_Screen_pressed"]
+[connection signal="pressed" from="ChangeSelection/Selection/Keymapping" to="." method="_on_Keymapping_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
-[connection signal="toggled" from="Back/fps_mode" to="Back/fps_mode/Config" method="_on_fps_mode_toggled"]

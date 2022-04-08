@@ -3,11 +3,12 @@ extends Control
 
 func _physics_process(_delta):
 	if OS.get_screen_count() > 1:
-		$Option/Screen0.show()
-		$Option/Screen1.show()
+		$ScreenOption/Option/Screen0.show()
+		$ScreenOption/Option/Screen1.show()
 	else:
-		$Button_Screen0.hide()
-		$Button_Screen1.hide()
+		$ScreenOption/Option/Screen0.hide()
+		$ScreenOption/Option/Screen1.hide()
+
 #
 
 
@@ -44,3 +45,19 @@ func _on_Maximized_pressed():
 #BACK TO MENU
 func _on_Back_pressed():
 	self.hide()
+
+
+
+###############OPTIIOMNNFSNS MENU
+func hide_all():
+	$KeyOption.hide()
+	$ScreenOption.hide()
+	
+func _on_Screen_pressed():
+	hide_all()
+	$ScreenOption.show()
+
+
+func _on_Keymapping_pressed():
+	hide_all()
+	$KeyOption.show()
