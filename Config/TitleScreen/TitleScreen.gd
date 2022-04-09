@@ -22,4 +22,16 @@ func _ready():
 
 
 func _on_Option_pressed():
+	$OptionsMenu/ScreenOption/Option.show()
+	#self.pause_mode = Node.PAUSE_MODE_STOP
 	$OptionsMenu.show()
+
+
+func _on_Continue_pressed():
+	get_tree().paused = false
+	Globals.show_mainMenu = false
+	self.queue_free()
+	
+			
+
+

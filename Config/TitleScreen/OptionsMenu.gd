@@ -51,11 +51,11 @@ func _on_Back_pressed():
 ###############OPTIIOMNNFSNS MENU
 func hide_all():
 	$KeyOption.hide()
-	$ScreenOption.hide()
+	$ScreenOption/Option.hide()
 	
 func _on_Screen_pressed():
 	hide_all()
-	$ScreenOption.show()
+	$ScreenOption/Option.visible = true
 
 
 func _on_Keymapping_pressed():

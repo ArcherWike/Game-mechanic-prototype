@@ -2,7 +2,7 @@ extends Node
 
 #OPTION
 var fps_mode = false
-
+var show_mainMenu = false
 
 """"
 			SCENE CONFIG
@@ -13,7 +13,6 @@ var fps_mode = false
 
 func save_scene(last_scene):
 	var path_last_scene = str("res://CurrentSave/",last_scene,".tscn")
-	
 	var scene = PackedScene.new()
 	scene.pack(get_tree().get_current_scene())
 	ResourceSaver.save(path_last_scene, scene)

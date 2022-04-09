@@ -1,0 +1,767 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Config/FPS.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Concepts/pieczatka.png" type="Texture" id=2]
+[ext_resource path="res://Config/TitleScreen/TitleScreen.gd" type="Script" id=3]
+[ext_resource path="res://Config/TitleScreen/OptionsMenu.gd" type="Script" id=4]
+[ext_resource path="res://Objects/Fonts/new_dynamicfont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://input_menu/fonts/montserrat-extra-bold-48px.tres" type="DynamicFont" id=6]
+[ext_resource path="res://input_menu/fonts/montserrat-extra-bold-24px.tres" type="DynamicFont" id=7]
+[ext_resource path="res://input_menu/input_line/InputLine.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Config/TitleScreen/fps_mode.gd" type="Script" id=9]
+[ext_resource path="res://input_menu/InputMenu.gd" type="Script" id=10]
+[ext_resource path="res://input_menu/input_mapper/InputMapper.gd" type="Script" id=11]
+[ext_resource path="res://input_menu/buttons/change.png" type="Texture" id=12]
+[ext_resource path="res://input_menu/buttons/change-pressed.png" type="Texture" id=13]
+[ext_resource path="res://input_menu/input_line/ActionList.gd" type="Script" id=14]
+[ext_resource path="res://input_menu/KeySelectMenu.gd" type="Script" id=15]
+[ext_resource path="res://input_menu/input_line/InputLine.gd" type="Script" id=16]
+[ext_resource path="res://Objects/Fonts/Juhaira.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://input_menu/buttons/change-disabled.png" type="Texture" id=18]
+[ext_resource path="res://Config/TitleScreen/Buttons/MenuButton/OptionButton.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Config/TitleScreen/Buttons/MenuButton/ExitButton.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Config/TitleScreen/Buttons/MenuButton/NewGameButton.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Config/TitleScreen/Buttons/MenuButton/ContinueButton.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Config/TitleScreen/Buttons/MenuButton/SaveButton.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Config/TitleScreen/Buttons/MenuButton/LoadButton.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Config/TitleScreen/OptionsMenu.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Config/FPS.tscn" type="PackedScene" id=26]
+[ext_resource path="res://input_menu/InputMenu.tscn" type="PackedScene" id=27]
+[ext_resource path="res://input_menu/input_mapper/InputMapper.tscn" type="PackedScene" id=28]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 17 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends OptionButton
+
+func initialize(input_mapper):
+	for profile_index in input_mapper.profiles:
+		var profile_name = input_mapper.profiles[profile_index].capitalize()
+		add_item(profile_name, profile_index)
+	self.connect(\"item_selected\", input_mapper, \"_on_ProfilesMenu_item_selected\")
+"
+
+[node name="TitleScreen" type="Control"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.176471 )
+anchor_left = -0.116
+anchor_top = -1.277
+anchor_right = -0.116
+anchor_bottom = -1.277
+margin_left = 86.24
+margin_top = 417.64
+margin_right = 7589.24
+margin_bottom = 4638.64
+rect_scale = Vector2( 0.06, 0.06 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 100.0
+margin_bottom = 160.0
+custom_constants/separation = 1
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="Buttons" instance=ExtResource( 22 )]
+margin_right = 360.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 360, 31 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Continue"]
+margin_right = 29.0
+margin_bottom = 19.0
+custom_colors/font_color_shadow = Color( 0.192157, 0.188235, 0.184314, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 5 )
+text = "Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGame" type="Button" parent="Buttons" instance=ExtResource( 21 )]
+margin_top = 32.0
+margin_right = 360.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 360, 31 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/NewGame"]
+margin_right = 29.0
+margin_bottom = 19.0
+custom_colors/font_color_shadow = Color( 0.192157, 0.188235, 0.184314, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 5 )
+text = "NewGame"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save" type="Button" parent="Buttons" instance=ExtResource( 23 )]
+margin_top = 64.0
+margin_right = 360.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 360, 31 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Save"]
+margin_right = 29.0
+margin_bottom = 19.0
+custom_colors/font_color_shadow = Color( 0.192157, 0.188235, 0.184314, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 5 )
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Load" type="Button" parent="Buttons" instance=ExtResource( 24 )]
+margin_top = 96.0
+margin_right = 360.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 360, 31 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Load"]
+margin_right = 29.0
+margin_bottom = 19.0
+custom_colors/font_color_shadow = Color( 0.192157, 0.188235, 0.184314, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 5 )
+text = "Load"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option" type="Button" parent="Buttons" instance=ExtResource( 19 )]
+margin_top = 128.0
+margin_right = 360.0
+margin_bottom = 159.0
+rect_min_size = Vector2( 360, 31 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Option"]
+margin_right = 29.0
+margin_bottom = 19.0
+custom_colors/font_color_shadow = Color( 0.192157, 0.188235, 0.184314, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 5 )
+text = "Option"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="Buttons" instance=ExtResource( 20 )]
+margin_top = 160.0
+margin_right = 360.0
+margin_bottom = 191.0
+rect_min_size = Vector2( 360, 31 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Exit"]
+margin_right = 29.0
+margin_bottom = 19.0
+custom_colors/font_color_shadow = Color( 0.192157, 0.188235, 0.184314, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 5 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VersionLabel" type="Label" parent="."]
+margin_left = 575.0
+margin_top = 276.0
+margin_right = 644.0
+margin_bottom = 317.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "Version 1.0
+Duck Army"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsMenu" type="Control" parent="." instance=ExtResource( 25 )]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ -72.0 ]
+}
+
+[node name="ColorRect" type="ColorRect" parent="OptionsMenu"]
+margin_right = 639.0
+margin_bottom = 318.0
+color = Color( 0.509804, 0.509804, 0.509804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="OptionsMenu/ColorRect"]
+margin_left = 230.0
+margin_top = 10.0
+margin_right = 230.0
+margin_bottom = 41.0
+custom_colors/font_color_shadow = Color( 0.192157, 0.188235, 0.184314, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 5 )
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScreenOption" type="ColorRect" parent="OptionsMenu"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -525.0
+margin_top = -270.0
+margin_right = -25.0
+margin_bottom = -10.0
+color = Color( 0.662745, 0.662745, 0.662745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option" type="VBoxContainer" parent="OptionsMenu/ScreenOption"]
+margin_left = 25.0
+margin_top = 10.0
+margin_right = 112.0
+margin_bottom = 154.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fullscreen" type="Button" parent="OptionsMenu/ScreenOption/Option"]
+margin_right = 87.0
+margin_bottom = 20.0
+text = "Fullscreen"
+
+[node name="Minimized" type="Button" parent="OptionsMenu/ScreenOption/Option"]
+margin_top = 24.0
+margin_right = 87.0
+margin_bottom = 44.0
+text = "Minimized"
+
+[node name="Maximized" type="Button" parent="OptionsMenu/ScreenOption/Option"]
+margin_top = 48.0
+margin_right = 87.0
+margin_bottom = 68.0
+text = "Maximized"
+
+[node name="Screen0" type="Button" parent="OptionsMenu/ScreenOption/Option"]
+margin_top = 72.0
+margin_right = 87.0
+margin_bottom = 92.0
+text = "Screen0"
+
+[node name="Screen1" type="Button" parent="OptionsMenu/ScreenOption/Option"]
+margin_top = 96.0
+margin_right = 87.0
+margin_bottom = 116.0
+text = "Screen1"
+
+[node name="fps_mode" type="CheckBox" parent="OptionsMenu/ScreenOption/Option"]
+margin_top = 120.0
+margin_right = 87.0
+margin_bottom = 144.0
+text = "FPS show"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Config" type="Label" parent="OptionsMenu/ScreenOption/Option/fps_mode"]
+visible = false
+margin_left = -118.0
+margin_top = 95.0
+margin_right = -59.0
+margin_bottom = 109.0
+text = "FPS: 0"
+script = ExtResource( 9 )
+
+[node name="FPS" type="Label" parent="OptionsMenu/ScreenOption/Option/fps_mode" instance=ExtResource( 26 )]
+visible = false
+margin_left = -123.0
+margin_top = 107.0
+margin_right = -83.0
+margin_bottom = 121.0
+text = "FPS: 30"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyOption" type="ColorRect" parent="OptionsMenu"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -525.0
+margin_top = -270.0
+margin_right = -25.0
+margin_bottom = -10.0
+color = Color( 0.662745, 0.662745, 0.662745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InputMenu" type="Control" parent="OptionsMenu/KeyOption" instance=ExtResource( 27 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InputMapper" type="Node" parent="OptionsMenu/KeyOption/InputMenu" instance=ExtResource( 28 )]
+script = ExtResource( 11 )
+
+[node name="Column" type="Control" parent="OptionsMenu/KeyOption/InputMenu"]
+margin_left = 20.0
+margin_right = 400.0
+margin_bottom = 250.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="OptionsMenu/KeyOption/InputMenu/Column"]
+margin_right = 300.0
+margin_bottom = 26.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "Controls Menu"
+align = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProfilesMenu" type="OptionButton" parent="OptionsMenu/KeyOption/InputMenu/Column"]
+process_priority = -8
+margin_left = 100.0
+margin_top = 30.0
+margin_right = 129.0
+margin_bottom = 52.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+toggle_mode = false
+text = "Profile Normal"
+flat = true
+items = [ "Profile Normal", null, false, 0, null, "Profile Alternate", null, false, 1, null, "Profile Custom", null, false, 2, null ]
+selected = 0
+script = SubResource( 2 )
+
+[node name="@@16" type="PopupMenu" parent="OptionsMenu/KeyOption/InputMenu/Column/ProfilesMenu"]
+input_pass_on_modal_close_click = false
+items = [ "Profile Normal", null, 2, true, false, 0, 0, null, "", false, "Profile Alternate", null, 2, false, false, 1, 0, null, "", false, "Profile Custom", null, 2, false, false, 2, 0, null, "", false ]
+allow_search = true
+
+[node name="@@15" type="Timer" parent="OptionsMenu/KeyOption/InputMenu/Column/ProfilesMenu/@@16"]
+wait_time = 0.3
+one_shot = true
+
+[node name="Header" type="HBoxContainer" parent="OptionsMenu/KeyOption/InputMenu/Column"]
+margin_top = 65.0
+margin_right = 276.0
+margin_bottom = 66.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="OptionsMenu/KeyOption/InputMenu/Column/Header"]
+margin_right = 89.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.278431, 0.278431, 0.278431, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "Action"
+uppercase = true
+
+[node name="Control" type="Label" parent="OptionsMenu/KeyOption/InputMenu/Column/Header"]
+margin_left = 93.0
+margin_right = 182.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.278431, 0.278431, 0.278431, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "Control"
+uppercase = true
+
+[node name="Change" type="Label" parent="OptionsMenu/KeyOption/InputMenu/Column/Header"]
+margin_left = 186.0
+margin_right = 276.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.278431, 0.278431, 0.278431, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "Change"
+uppercase = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="OptionsMenu/KeyOption/InputMenu/Column"]
+margin_top = 80.0
+margin_right = 261.0
+margin_bottom = 300.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionList" type="VBoxContainer" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer"]
+margin_right = 261.0
+margin_bottom = 220.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 15
+script = ExtResource( 14 )
+
+[node name="InputLine" type="HBoxContainer" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList" instance=ExtResource( 8 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 261.0
+margin_bottom = 10.0
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/InputLine"]
+margin_top = 2.0
+margin_right = 84.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.278431, 0.278431, 0.278431, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "Ui Up"
+
+[node name="Key" type="Label" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/InputLine"]
+margin_left = 88.0
+margin_right = 172.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.278431, 0.278431, 0.278431, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "Up"
+align = 1
+valign = 1
+
+[node name="ChangeButton" type="TextureButton" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/InputLine"]
+margin_left = 201.0
+margin_right = 261.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 60, 20 )
+size_flags_horizontal = 10
+size_flags_vertical = 8
+disabled = true
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_disabled = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+
+[node name="@InputLine@17" type="HBoxContainer" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList" instance=ExtResource( 8 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 261.0
+margin_bottom = 10.0
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/@InputLine@17"]
+margin_top = 2.0
+margin_right = 84.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.278431, 0.278431, 0.278431, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "Ui Down"
+
+[node name="Key" type="Label" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/@InputLine@17"]
+margin_left = 88.0
+margin_right = 172.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.278431, 0.278431, 0.278431, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "Down"
+align = 1
+valign = 1
+
+[node name="ChangeButton" type="TextureButton" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/@InputLine@17"]
+margin_left = 201.0
+margin_right = 261.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 60, 20 )
+size_flags_horizontal = 10
+size_flags_vertical = 8
+disabled = true
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_disabled = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+
+[node name="@InputLine@18" type="HBoxContainer" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList" instance=ExtResource( 8 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 261.0
+margin_bottom = 10.0
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/@InputLine@18"]
+margin_top = 2.0
+margin_right = 84.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.278431, 0.278431, 0.278431, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "Ui Left"
+
+[node name="Key" type="Label" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/@InputLine@18"]
+margin_left = 88.0
+margin_right = 172.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.278431, 0.278431, 0.278431, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "Left"
+align = 1
+valign = 1
+
+[node name="ChangeButton" type="TextureButton" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/@InputLine@18"]
+margin_left = 201.0
+margin_right = 261.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 60, 20 )
+size_flags_horizontal = 10
+size_flags_vertical = 8
+disabled = true
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_disabled = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+
+[node name="@InputLine@19" type="HBoxContainer" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList" instance=ExtResource( 8 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 261.0
+margin_bottom = 10.0
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/@InputLine@19"]
+margin_top = 2.0
+margin_right = 84.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.278431, 0.278431, 0.278431, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "Ui Right"
+
+[node name="Key" type="Label" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/@InputLine@19"]
+margin_left = 88.0
+margin_right = 172.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.278431, 0.278431, 0.278431, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "Right"
+align = 1
+valign = 1
+
+[node name="ChangeButton" type="TextureButton" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/@InputLine@19"]
+margin_left = 201.0
+margin_right = 261.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 60, 20 )
+size_flags_horizontal = 10
+size_flags_vertical = 8
+disabled = true
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_disabled = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+
+[node name="_h_scroll" type="HScrollBar" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -12.0
+
+[node name="_v_scroll" type="VScrollBar" parent="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -12.0
+
+[node name="KeySelectMenu" type="Panel" parent="OptionsMenu/KeyOption/InputMenu"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.679569 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 15 )
+
+[node name="Label" type="Label" parent="OptionsMenu/KeyOption/InputMenu/KeySelectMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -590.0
+margin_top = -30.0
+margin_right = 590.0
+margin_bottom = 30.0
+size_flags_horizontal = 5
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 1
+custom_fonts/font = ExtResource( 6 )
+text = "Press a Key..."
+align = 1
+autowrap = true
+uppercase = true
+
+[node name="ChangeSelection" type="ColorRect" parent="OptionsMenu"]
+margin_left = 10.0
+margin_top = 50.0
+margin_right = 107.0
+margin_bottom = 183.0
+color = Color( 0.662745, 0.662745, 0.662745, 0.223529 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selection" type="VBoxContainer" parent="OptionsMenu/ChangeSelection"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 2.0
+margin_right = -3.0
+rect_min_size = Vector2( 85, 133 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Screen" type="Button" parent="OptionsMenu/ChangeSelection/Selection"]
+modulate = Color( 0.0509804, 0, 0, 0.337255 )
+self_modulate = Color( 0, 0, 0, 0.913725 )
+margin_right = 91.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 86, 15 )
+text = "Screen"
+
+[node name="Keymapping" type="Button" parent="OptionsMenu/ChangeSelection/Selection"]
+modulate = Color( 0.0509804, 0, 0, 0.337255 )
+self_modulate = Color( 0, 0, 0, 0.913725 )
+margin_top = 24.0
+margin_right = 91.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 86, 15 )
+text = "Keymapping"
+
+[node name="Back" type="Button" parent="OptionsMenu"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 80.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 70, 31 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="OptionsMenu/Back"]
+margin_left = 10.0
+margin_right = 58.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 10, 10 )
+custom_colors/font_color_shadow = Color( 0.192157, 0.188235, 0.184314, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 5 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Buttons/Option" to="." method="_on_Option_pressed"]
+[connection signal="pressed" from="OptionsMenu/ScreenOption/Option/Fullscreen" to="OptionsMenu" method="_on_Fullscreen_pressed"]
+[connection signal="pressed" from="OptionsMenu/ScreenOption/Option/Minimized" to="OptionsMenu" method="_on_Minimized_pressed"]
+[connection signal="pressed" from="OptionsMenu/ScreenOption/Option/Maximized" to="OptionsMenu" method="_on_Maximized_pressed"]
+[connection signal="pressed" from="OptionsMenu/ScreenOption/Option/Screen0" to="OptionsMenu" method="_on_Screen0_pressed"]
+[connection signal="pressed" from="OptionsMenu/ScreenOption/Option/Screen1" to="OptionsMenu" method="_on_Screen1_pressed"]
+[connection signal="toggled" from="OptionsMenu/ScreenOption/Option/fps_mode" to="OptionsMenu/ScreenOption/Option/fps_mode/Config" method="_on_fps_mode_toggled"]
+[connection signal="pressed" from="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/InputLine/ChangeButton" to="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/InputLine" method="_on_ChangeButton_pressed"]
+[connection signal="pressed" from="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/@InputLine@17/ChangeButton" to="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/@InputLine@17" method="_on_ChangeButton_pressed"]
+[connection signal="pressed" from="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/@InputLine@18/ChangeButton" to="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/@InputLine@18" method="_on_ChangeButton_pressed"]
+[connection signal="pressed" from="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/@InputLine@19/ChangeButton" to="OptionsMenu/KeyOption/InputMenu/Column/ScrollContainer/ActionList/@InputLine@19" method="_on_ChangeButton_pressed"]
+[connection signal="pressed" from="OptionsMenu/ChangeSelection/Selection/Screen" to="OptionsMenu" method="_on_Screen_pressed"]
+[connection signal="pressed" from="OptionsMenu/ChangeSelection/Selection/Keymapping" to="OptionsMenu" method="_on_Keymapping_pressed"]
+[connection signal="pressed" from="OptionsMenu/Back" to="OptionsMenu" method="_on_Back_pressed"]

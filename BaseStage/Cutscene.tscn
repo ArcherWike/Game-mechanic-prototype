@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Cutscene/tv.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Config/SceneEntrace.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Config/MainMenu.tscn" type="PackedScene" id=4]
 
 [node name="Cutscene" type="Node2D"]
-position = Vector2( 9, -20 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 84, 103 )
 
 [node name="tv" parent="." instance=ExtResource( 2 )]
-position = Vector2( 253, 107 )
+position = Vector2( 489, 146 )
 
 [node name="Entrace" parent="." instance=ExtResource( 3 )]
 position = Vector2( -3, 107 )
@@ -19,3 +19,5 @@ scene = "Door"
 
 [node name="Position2D" type="Position2D" parent="Entrace"]
 position = Vector2( 60, 0 )
+
+[node name="MainMenu" parent="." instance=ExtResource( 4 )]
