@@ -3,6 +3,7 @@ extends Node
 #OPTION
 var fps_mode = false
 var show_mainMenu = false
+var last_scene = "Colect"
 
 """"
 			SCENE CONFIG
@@ -29,8 +30,6 @@ func goto_scene(path):
 	call_deferred("_deferred_goto_scene", path)
 	
 func _deferred_goto_scene(path):
-	print("kj")
-	
 	var last_scene = get_tree().get_current_scene().get_name() #the name of the scene we are leaving
 	save_scene(last_scene)
 	#print("Lauren left ",last_scene)
@@ -52,7 +51,18 @@ func _deferred_goto_scene(path):
 	get_tree().set_current_scene(instanced_scene)
 
 
+func load_scene(path):
+	#var path = str("res://CurrentSave/",last_scene,".tscn")
+	var packed_scene = ResourceLoader.load(path)
 
+	# Instance the new scene
+	var instanced_scene = packed_scene.instance()
+
+	# Add it to the scene tree, as direct child of root
+	get_tree().get_root().add_child(instanced_scene)
+
+	# Set it as the current scene, only after it has been added to the tree
+	get_tree().set_current_scene(instanced_scene)
 
 #LOAD Slot SAVE
 func copy_recursive(from, to):
@@ -77,3 +87,23 @@ func copy_recursive(from, to):
 	else:
 		print("Error copying " + from + " to " + to)
 
+func remove_recursive(path):
+	var directory = Directory.new()
+	
+	# Open directory
+	var error = directory.open(path)
+	if error == OK:
+		# List directory content
+		directory.list_dir_begin(true)
+		var file_name = directory.get_next()
+		while file_name != "":
+			if directory.current_is_dir():
+				remove_recursive(path + "/" + file_name)
+			else:
+				directory.remove(file_name)
+			file_name = directory.get_next()
+		
+		# Remove current path
+		#directory.remove(path)
+	else:
+		print("Error removing " + path)

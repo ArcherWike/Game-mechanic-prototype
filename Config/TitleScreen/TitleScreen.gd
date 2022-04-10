@@ -1,5 +1,6 @@
 extends Control
 
+
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("title_screen"):
 		if !self.visible:
@@ -34,4 +35,25 @@ func _on_Continue_pressed():
 	
 			
 
+
+
+
+func _on_Save_pressed():
+	var scene = get_tree().get_current_scene().get_name()
+	Globals.save_scene(scene)
+	Globals.copy_recursive("res://CurrentSave/", "res://SlotSave/")
+	
+
+
+func _on_Load_pressed():
+	get_tree().get_current_scene().free()
+
+	# Load new scene
+	Globals.load_scene("res://Config/Wait.tscn")
+	#Globals.goto_scene("res://Config/Wait.tscn")
+	Globals.remove_recursive("res://CurrentSave/")
+	Globals.copy_recursive("res://SlotSave/", "res://CurrentSave/")
+	
+	
+	
 

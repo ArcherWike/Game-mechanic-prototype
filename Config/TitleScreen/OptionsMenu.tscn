@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Objects/Fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Config/TitleScreen/OptionsMenu.gd" type="Script" id=2]
 [ext_resource path="res://Config/TitleScreen/fps_mode.gd" type="Script" id=3]
 [ext_resource path="res://Config/FPS.tscn" type="PackedScene" id=4]
-[ext_resource path="res://input_menu/InputMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Config/TitleScreen/Buttons/sound_mode.gd" type="Script" id=6]
 [ext_resource path="res://Config/TitleScreen/mute.jpg" type="Texture" id=7]
 [ext_resource path="res://Config/TitleScreen/sound.jpg" type="Texture" id=8]
@@ -14,7 +13,6 @@ pause_mode = 2
 rect_pivot_offset = Vector2( -497, -145 )
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ -72.0 ]
 }
 
@@ -142,16 +140,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="InputMenu" parent="KeyOption" instance=ExtResource( 5 )]
-anchor_left = -0.226
-anchor_top = -0.175
-anchor_right = 1.015
-anchor_bottom = 1.028
-margin_left = 115.26
-margin_top = 45.5
-margin_right = -517.65
-margin_bottom = -267.28
-
 [node name="ChangeSelection" type="ColorRect" parent="."]
 margin_left = 10.0
 margin_top = 50.0
@@ -169,9 +157,6 @@ margin_left = 3.0
 margin_top = 2.0
 margin_right = -3.0
 rect_min_size = Vector2( 85, 133 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Screen" type="Button" parent="ChangeSelection/Selection"]
 modulate = Color( 0.0509804, 0, 0, 0.337255 )

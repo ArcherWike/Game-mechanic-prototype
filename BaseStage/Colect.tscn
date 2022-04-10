@@ -6,6 +6,7 @@
 [ext_resource path="res://Config/MainMenu.tscn" type="PackedScene" id=4]
 
 [node name="Colect" type="Node2D"]
+position = Vector2( -1, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 168, 84 )
