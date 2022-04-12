@@ -46,14 +46,10 @@ func _on_Save_pressed():
 
 
 func _on_Load_pressed():
-	get_tree().get_current_scene().free()
-
-	# Load new scene
-	Globals.load_scene("res://Config/Wait.tscn")
-	#Globals.goto_scene("res://Config/Wait.tscn")
+	Globals.goto_scene(str("res://Config/Wait.tscn"), false)
+	print("dsdsa")
 	Globals.remove_recursive("res://CurrentSave/")
 	Globals.copy_recursive("res://SlotSave/", "res://CurrentSave/")
+	Globals.show_mainMenu = false
 	
 	
-	
-

@@ -1,0 +1,157 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Config/TitleScreen/Buttons/MenuButton/NewGame.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Config/TitleScreen/Buttons/MenuButton/ContinueButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Config/TitleScreen/confirmingmessage.gd" type="Script" id=3]
+[ext_resource path="res://Config/TitleScreen/Buttons/MenuButton/ExitButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Config/TitleScreen/MainScreenMenu.gd" type="Script" id=5]
+[ext_resource path="res://Objects/Fonts/Juhaira.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Objects/Concepts/pieczarka.jpg" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 7 )
+
+[node name="MainScreenMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 640.0
+margin_bottom = 320.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.482353 )
+margin_right = 800.0
+margin_bottom = 450.0
+rect_scale = Vector2( 0.8, 0.7 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 100.0
+margin_bottom = 160.0
+custom_constants/separation = 1
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" parent="Buttons" instance=ExtResource( 2 )]
+margin_top = 12.0
+margin_bottom = 43.0
+
+[node name="NewGame" parent="Buttons" instance=ExtResource( 1 )]
+margin_top = 44.0
+margin_bottom = 75.0
+
+[node name="Exit" parent="Buttons" instance=ExtResource( 4 )]
+margin_top = 76.0
+margin_bottom = 107.0
+
+[node name="VersionLabel" type="Label" parent="."]
+margin_left = 575.0
+margin_top = 276.0
+margin_right = 644.0
+margin_bottom = 317.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "Version 1.0
+Duck Army"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="confirmingmessage" type="Control" parent="."]
+visible = false
+margin_left = 313.0
+margin_top = 152.0
+margin_right = 313.0
+margin_bottom = 152.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="confirmingmessage"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -65.0
+margin_right = 120.0
+margin_bottom = 65.0
+color = Color( 0.415686, 0.415686, 0.415686, 0.772549 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="confirmingmessage"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -65.0
+margin_right = 120.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="VBoxContainer" parent="confirmingmessage/CenterContainer"]
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 230.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 220, 120 )
+
+[node name="Description" type="Label" parent="confirmingmessage/CenterContainer/Message"]
+margin_right = 220.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 160, 85 )
+text = "
+Are you sure 
+you want to quit the game?
+An unsaved save will be lost! "
+
+[node name="buttons" type="HBoxContainer" parent="confirmingmessage/CenterContainer/Message"]
+margin_top = 89.0
+margin_right = 220.0
+margin_bottom = 120.0
+
+[node name="Yes" type="Button" parent="confirmingmessage/CenterContainer/Message/buttons"]
+margin_right = 100.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 100, 31 )
+text = "YES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="No" type="Button" parent="confirmingmessage/CenterContainer/Message/buttons"]
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 100, 31 )
+text = "NO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Buttons/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="Buttons/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="confirmingmessage" method="_on_Exit_pressed"]
+[connection signal="pressed" from="confirmingmessage/CenterContainer/Message/buttons/Yes" to="confirmingmessage" method="_on_Yes_pressed"]
+[connection signal="pressed" from="confirmingmessage/CenterContainer/Message/buttons/No" to="confirmingmessage" method="_on_No_pressed"]

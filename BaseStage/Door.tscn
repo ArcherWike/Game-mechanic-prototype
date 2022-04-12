@@ -17,6 +17,7 @@ position = Vector2( 560, 95 )
 position = Vector2( 41.4286, 4.28572 )
 rotation = 3.14159
 scale = Vector2( 1, 0.8 )
+collision_layer = 32
 scene = "Lever"
 
 [node name="Entrace" parent="." instance=ExtResource( 3 )]

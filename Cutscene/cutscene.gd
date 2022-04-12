@@ -3,6 +3,12 @@ extends KinematicBody2D
 onready var _animated_sprite = $AnimatedSprite
 onready var colision = $CollisionShape2D
  
+
+
+
+
+
+
 func _input(event):
 	if event.is_action_pressed("interact") and Isplayer == true:
 		open_door()
@@ -25,14 +31,13 @@ func open_door():
 	_animated_sprite.set_frame(0)
 	_animated_sprite.play()
 	
-func col_false():
-	colision.disabled = false
+
 
 func _on_Area2D_body_exited(body):
 	if body.name == "Player" and interact == true:
 		opened = false
 		_animated_sprite.set_frame(3)
-		call_deferred("col_false")		
+		colision.disabled = false
 		_animated_sprite.play("door", true)
 		interact = false
 		Isplayer = false

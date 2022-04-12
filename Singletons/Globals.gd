@@ -3,7 +3,8 @@ extends Node
 #OPTION
 var fps_mode = false
 var show_mainMenu = false
-var last_scene = "Colect"
+var current_scene = "Colect"
+var saved_scene = "Colect"
 
 """"
 			SCENE CONFIG
@@ -19,7 +20,7 @@ func save_scene(last_scene):
 	ResourceSaver.save(path_last_scene, scene)
 	
 
-func goto_scene(path):
+func goto_scene(path, whether_to_save):
 	# This function will usually be called from a signal callback,
 	# or some other function from the running scene.
 	# Deleting the current scene at this point might be
@@ -27,42 +28,34 @@ func goto_scene(path):
 	# The worst case will be a crash or unexpected behavior.
 	# The way around this is deferring the load to a later time, when
 	# it is ensured that no code from the current scene is running:
-	call_deferred("_deferred_goto_scene", path)
+	call_deferred("_deferred_goto_scene", path, whether_to_save)
 	
-func _deferred_goto_scene(path):
-	var last_scene = get_tree().get_current_scene().get_name() #the name of the scene we are leaving
-	save_scene(last_scene)
+	
+func _deferred_goto_scene(path, whether_to_save):
+	current_scene = get_tree().get_current_scene().get_name()
+	if whether_to_save:
+		var last_scene = get_tree().get_current_scene().get_name() #the name of the scene we are leaving
+		save_scene(last_scene)
 	#print("Lauren left ",last_scene)
 	print("Lauren go ", path)
-
-
-	get_tree().get_current_scene().free()
+	#get_tree().get_current_scene().queue_free()
+	get_tree().change_scene(path)
+	
 
 	# Load new scene
-	var packed_scene = ResourceLoader.load(path)
+	#var packed_scene = load(path) #new wersion (I don't know, but there are small bugs)
+	#ResourceLoader.load(path)
 
 	# Instance the new scene
-	var instanced_scene = packed_scene.instance()
+	#var instanced_scene = packed_scene.instance()
 
-	# Add it to the scene tree, as direct child of root
-	get_tree().get_root().add_child(instanced_scene)
+	# Add it to the scene tree, as direct child of rootget_rooT(
 
-	# Set it as the current scene, only after it has been added to the tree
-	get_tree().set_current_scene(instanced_scene)
-
-
-func load_scene(path):
-	#var path = str("res://CurrentSave/",last_scene,".tscn")
-	var packed_scene = ResourceLoader.load(path)
-
-	# Instance the new scene
-	var instanced_scene = packed_scene.instance()
-
-	# Add it to the scene tree, as direct child of root
-	get_tree().get_root().add_child(instanced_scene)
+	#get_tree().get_root().add_child(instanced_scene)
 
 	# Set it as the current scene, only after it has been added to the tree
-	get_tree().set_current_scene(instanced_scene)
+	#get_tree().set_current_scene(instanced_scene)
+
 
 #LOAD Slot SAVE
 func copy_recursive(from, to):

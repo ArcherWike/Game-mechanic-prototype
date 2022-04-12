@@ -7,8 +7,11 @@
 custom_solver_bias = 0.275
 radius = 19.0
 
-[node name="Item" type="Area2D"]
+[node name="Item" type="Area2D" groups=["items"]]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource( 2 )
+item_type = "Money_bag"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -17,5 +20,3 @@ shape = SubResource( 1 )
 position = Vector2( 1, 0 )
 scale = Vector2( 0.02, 0.02 )
 texture = ExtResource( 1 )
-
-[connection signal="body_entered" from="." to="." method="_on_Item_body_entered"]

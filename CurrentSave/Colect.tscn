@@ -1,67 +1,39 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Objects/Items/Item.gd" type="Script" id=1]
+[ext_resource path="res://Config/SceneEntrace.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Config/MainMenu.gd" type="Script" id=3]
-[ext_resource path="res://Config/SceneEntrace.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Config/MainMenu.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/Items/Item.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Config/TitleScreen/Entrace.gd" type="Script" id=7]
-[ext_resource path="res://Player/Player.gd" type="Script" id=8]
+[ext_resource path="res://Objects/Items/Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Config/MainMenu.tscn" type="PackedScene" id=4]
 
 [node name="Colect" type="Node2D"]
 position = Vector2( -1, 1 )
 
-[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( 493.877, 267.979 )
-script = ExtResource( 8 )
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 168, 84 )
 
-[node name="Item" type="Area2D" parent="." instance=ExtResource( 6 )]
+[node name="Item" parent="." instance=ExtResource( 3 )]
 position = Vector2( 499, 67 )
-script = ExtResource( 1 )
-item_type = "Money bag"
 
-[node name="Item2" type="Area2D" parent="." instance=ExtResource( 6 )]
+[node name="Item2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 117, 178 )
-script = ExtResource( 1 )
-item_type = "Money bag"
 
-[node name="Item4" type="Area2D" parent="." instance=ExtResource( 6 )]
+[node name="Item3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 600, 276 )
+
+[node name="Item4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 385, 278 )
-script = ExtResource( 1 )
-item_type = "Money bag"
 
-[node name="Item5" type="Area2D" parent="." instance=ExtResource( 6 )]
+[node name="Item5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 187, 281 )
-script = ExtResource( 1 )
-item_type = "Money bag"
 
-[node name="Item6" type="Area2D" parent="." instance=ExtResource( 6 )]
+[node name="Item6" parent="." instance=ExtResource( 3 )]
 position = Vector2( 334, 148 )
-script = ExtResource( 1 )
-item_type = "Money bag"
 
-[node name="Item7" type="Area2D" parent="." instance=ExtResource( 6 )]
+[node name="Item7" parent="." instance=ExtResource( 3 )]
 position = Vector2( 86, 39 )
-script = ExtResource( 1 )
-item_type = "Money bag"
 
-[node name="Entrace" type="Area2D" parent="." instance=ExtResource( 4 )]
+[node name="Entrace" parent="." instance=ExtResource( 1 )]
 position = Vector2( 6, 90 )
-script = ExtResource( 7 )
 scene = "Door"
 
-[node name="MainMenu" type="Control" parent="." instance=ExtResource( 5 )]
-pause_mode = 2
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[connection signal="body_entered" from="Item" to="Item" method="_on_Item_body_entered"]
-[connection signal="body_entered" from="Item2" to="Item2" method="_on_Item_body_entered"]
-[connection signal="body_entered" from="Item4" to="Item4" method="_on_Item_body_entered"]
-[connection signal="body_entered" from="Item5" to="Item5" method="_on_Item_body_entered"]
-[connection signal="body_entered" from="Item6" to="Item6" method="_on_Item_body_entered"]
-[connection signal="body_entered" from="Item7" to="Item7" method="_on_Item_body_entered"]
-[connection signal="body_entered" from="Entrace" to="Entrace" method="_on_Entrace_body_entered"]
+[node name="MainMenu" parent="." instance=ExtResource( 4 )]
