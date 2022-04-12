@@ -3,10 +3,7 @@ extends Area2D
 export(String) var scene
 
 
-func _ready():
-	connect("body_entered", self, "_on_body_entered")
-
-func _on_body_entered(body):
+func _on_Entrace_body_entered(body):
 	if body.name == "Player":
 		if scene == "":
 			push_error("Error changing scenes: scene has no assigned scene")
@@ -18,5 +15,3 @@ func _on_body_entered(body):
 		Globals.goto_scene(str("res://BaseStage/",scene,".tscn"), true)
 		return true
 		#self.disabled = false
-		
-

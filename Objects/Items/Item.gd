@@ -3,7 +3,8 @@ extends Area2D
 export(String) var item_type = "Money bag"
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	connect("body_entered", self ,"_on_Item_body_entered")
+	if connect("body_entered", self ,"_on_Item_body_entered"):
+		pass
 
 func _on_Item_body_entered(body):
 	if body.name == "Player":
