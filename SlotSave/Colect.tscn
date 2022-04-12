@@ -2,64 +2,64 @@
 
 [ext_resource path="res://Objects/Items/Item.gd" type="Script" id=1]
 [ext_resource path="res://Config/MainMenu.gd" type="Script" id=2]
-[ext_resource path="res://Config/MainMenu.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Config/SceneEntrace.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/Items/Item.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Items/Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Config/MainMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Config/SceneEntrace.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Config/TitleScreen/Entrace.gd" type="Script" id=7]
 [ext_resource path="res://Player/Player.gd" type="Script" id=8]
 
 [node name="Colect" type="Node2D"]
 position = Vector2( -1, 1 )
 
-[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 5 )]
-position = Vector2( 502.802, 282.216 )
+[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 417.97, 246.131 )
 collision_layer = 2
 collision_mask = 61
 script = ExtResource( 8 )
 
-[node name="Item" type="Area2D" parent="." groups=["items"] instance=ExtResource( 6 )]
+[node name="Item" type="Area2D" parent="." groups=["items"] instance=ExtResource( 3 )]
 position = Vector2( 499, 67 )
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 1 )
 item_type = "Money_bag"
 
-[node name="Item2" type="Area2D" parent="." groups=["items"] instance=ExtResource( 6 )]
+[node name="Item2" type="Area2D" parent="." groups=["items"] instance=ExtResource( 3 )]
 position = Vector2( 117, 178 )
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 1 )
 item_type = "Money_bag"
 
-[node name="Item3" type="Area2D" parent="." groups=["items"] instance=ExtResource( 6 )]
+[node name="Item3" type="Area2D" parent="." groups=["items"] instance=ExtResource( 3 )]
 position = Vector2( 600, 276 )
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 1 )
 item_type = "Money_bag"
 
-[node name="Item5" type="Area2D" parent="." groups=["items"] instance=ExtResource( 6 )]
+[node name="Item5" type="Area2D" parent="." groups=["items"] instance=ExtResource( 3 )]
 position = Vector2( 187, 281 )
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 1 )
 item_type = "Money_bag"
 
-[node name="Item7" type="Area2D" parent="." groups=["items"] instance=ExtResource( 6 )]
+[node name="Item7" type="Area2D" parent="." groups=["items"] instance=ExtResource( 3 )]
 position = Vector2( 86, 39 )
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 1 )
 item_type = "Money_bag"
 
-[node name="Entrace" type="Area2D" parent="." instance=ExtResource( 4 )]
+[node name="Entrace" type="Area2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( 6, 90 )
 collision_layer = 32
 collision_mask = 2
 script = ExtResource( 7 )
 scene = "Door"
 
-[node name="MainMenu" type="Control" parent="." instance=ExtResource( 3 )]
+[node name="MainMenu" type="Control" parent="." instance=ExtResource( 4 )]
 pause_mode = 2
 script = ExtResource( 2 )

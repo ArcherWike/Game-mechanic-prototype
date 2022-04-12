@@ -3,8 +3,8 @@ extends Node
 #OPTION
 var fps_mode = false
 var show_mainMenu = false
-var current_scene = "Colect"
-var saved_scene = "Colect"
+var current_scene = "Center"
+var saved_scene = "Center"
 
 """"
 			SCENE CONFIG
@@ -18,6 +18,7 @@ func save_scene(last_scene):
 	var scene = PackedScene.new()
 	scene.pack(get_tree().get_current_scene())
 	ResourceSaver.save(path_last_scene, scene)
+	return true                                            ##dodać error jeżeli nie ma pliku
 	
 
 func goto_scene(path, whether_to_save):
@@ -35,12 +36,14 @@ func _deferred_goto_scene(path, whether_to_save):
 	current_scene = get_tree().get_current_scene().get_name()
 	if whether_to_save:
 		var last_scene = get_tree().get_current_scene().get_name() #the name of the scene we are leaving
-		save_scene(last_scene)
+		if !save_scene(last_scene):
+			push_error("error save scene")
 	#print("Lauren left ",last_scene)
 	print("Lauren go ", path)
 	#get_tree().get_current_scene().queue_free()
 	get_tree().change_scene(path)
 	
+	return true
 
 	# Load new scene
 	#var packed_scene = load(path) #new wersion (I don't know, but there are small bugs)

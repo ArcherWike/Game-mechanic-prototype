@@ -42,6 +42,8 @@ func _on_Save_pressed():
 	var scene = get_tree().get_current_scene().get_name()
 	Globals.save_scene(scene)
 	Globals.copy_recursive("res://CurrentSave/", "res://SlotSave/")
+	Dialogic.save()
+	#Dialogic.save("cos)
 	
 
 
@@ -51,5 +53,6 @@ func _on_Load_pressed():
 	Globals.remove_recursive("res://CurrentSave/")
 	Globals.copy_recursive("res://SlotSave/", "res://CurrentSave/")
 	Globals.show_mainMenu = false
+	Dialogic.load()
 	
 	
