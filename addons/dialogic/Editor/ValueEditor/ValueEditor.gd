@@ -31,7 +31,7 @@ func load_definition(id):
 	nodes['name'].text = current_definition['name']
 	nodes['value'].text = current_definition['value']
 	nodes['description'].text = current_definition['description']
-	nodes['categoryItem'].text = current_definition['categoryItem']
+	nodes['categoryItem'].text = current_definition['category item']
 
 func reset_editor():
 	nodes['name'].text = ''

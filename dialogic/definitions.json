@@ -10,6 +10,14 @@
 			"name": "coins",
 			"type": 0,
 			"value": "1"
+		},
+		{
+			"category item": "jedzenie",
+			"description": "czerwony pomidor, czerwony pomidor",
+			"id": "1649858790-648",
+			"name": "tomato",
+			"type": 0,
+			"value": "8"
 		}
 	]
 }

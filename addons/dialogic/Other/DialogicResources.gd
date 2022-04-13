@@ -295,7 +295,7 @@ static func get_default_definition_item(id: String):
 	return DialogicDefinitionsUtil.get_definition_by_id(data, id)
 
 
-static func set_default_definition_variable(id: String, name: String, value, description: String, categoryItem):
+static func set_default_definition_variable(id: String, name: String, value, description: String, categoryItem: String):
 	# WARNING: For use in the editor only
 	var data = get_default_definitions()
 	DialogicDefinitionsUtil.set_definition_variable(data, id, name, value, description, categoryItem)
