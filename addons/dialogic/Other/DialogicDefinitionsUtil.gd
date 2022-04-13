@@ -37,12 +37,14 @@ static func set_definition(section: String, data: Dictionary, elem: Dictionary):
 		array.append(elem)
 
 
-static func set_definition_variable(data: Dictionary, id: String, name: String, value):
+static func set_definition_variable(data: Dictionary, id: String, name: String, value, description: String, categoryItem: String):
 	set_definition('variables', data, {
 		'id': id,
 		'name': name,
 		'value': value,
-		'type': 0
+		'type': 0,
+		'description': description,
+		'category item': categoryItem
 	})
 
 

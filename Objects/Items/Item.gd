@@ -9,6 +9,6 @@ func _ready():
 func _on_Item_body_entered(body):
 	if body.name == "Player":
 		self.queue_free()
-		var amount = Dialogic.get_variable("Coins")
-		Dialogic.set_variable("Coins", int(amount)+1)
+		var amount = Dialogic.get_variable("coins")
+		Dialogic.set_variable("coins", int(amount)+1)
 		print(amount)

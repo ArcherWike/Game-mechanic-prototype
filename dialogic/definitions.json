@@ -4,16 +4,12 @@
 	],
 	"variables": [
 		{
-			"id": "1649779201-648",
-			"name": "Coins",
+			"category item": "waluta",
+			"description": "to jest pniondz",
+			"id": "1649848867-648",
+			"name": "coins",
 			"type": 0,
-			"value": "0"
-		},
-		{
-			"id": "1649783329-787",
-			"name": "Potion",
-			"type": 0,
-			"value": "0"
+			"value": "1"
 		}
 	]
 }

@@ -60,3 +60,42 @@ text_key = "Value"
 margin_top = 24.0
 margin_right = 300.0
 margin_bottom = 48.0
+
+[node name="CategoryItem" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 632.0
+margin_right = 932.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 300, 0 )
+custom_constants/separation = 10
+
+[node name="CategoryItemLabel" parent="VBoxContainer/HBoxContainer/CategoryItem" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 300.0
+margin_bottom = 14.0
+text = "CategoryItem"
+text_key = "CategoryItem"
+
+[node name="CategoryItemInput" type="LineEdit" parent="VBoxContainer/HBoxContainer/CategoryItem"]
+margin_top = 24.0
+margin_right = 300.0
+margin_bottom = 48.0
+
+[node name="Description" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 52.0
+margin_right = 1024.0
+margin_bottom = 100.0
+custom_constants/separation = 10
+
+[node name="DescriptionLabel" parent="VBoxContainer/Description" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 14.0
+text = "Description"
+text_key = "Description"
+
+[node name="DescriptionInput" type="LineEdit" parent="VBoxContainer/Description"]
+margin_top = 24.0
+margin_right = 1024.0
+margin_bottom = 48.0

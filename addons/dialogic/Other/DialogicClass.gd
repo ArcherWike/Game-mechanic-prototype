@@ -291,6 +291,21 @@ static func get_variable(name: String, default = null):
 		print("[Dialogic] Warning! the variable [" + name + "] doesn't exists.")
 		return default
 
+# returns the value of the value definition with the given name
+static func get_category_variable(name: String, default = null):
+	if '/' in name:
+		var variable_id = _get_variable_from_file_name(name)
+		for d in _get_definitions()['variables']:
+			if d['id'] == variable_id:
+				return d['category item']
+		print("[Dialogic] Warning! the category Item [" + name + "] doesn't exists.")
+		return default
+	else:
+		for d in _get_definitions()['variables']:
+			if d['name'] == name:
+				return d['category item']
+		print("[Dialogic] Warning! the category Item [" + name + "] doesn't exists.")
+		return default
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## 						GAME STATE

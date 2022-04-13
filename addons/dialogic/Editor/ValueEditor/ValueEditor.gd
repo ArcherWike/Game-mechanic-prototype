@@ -9,6 +9,8 @@ onready var nodes = {
 	'name' : $VBoxContainer/HBoxContainer/VBoxContainer/Name,
 	'value_editor': $VBoxContainer/HBoxContainer/Value,
 	'value': $VBoxContainer/HBoxContainer/Value/ValueInput,
+	'description': $VBoxContainer/Description/DescriptionInput,
+	'categoryItem': $VBoxContainer/HBoxContainer/CategoryItem/CategoryItemInput
 	}
 
 func _ready():
@@ -28,10 +30,14 @@ func load_definition(id):
 	nodes['name'].editable = true
 	nodes['name'].text = current_definition['name']
 	nodes['value'].text = current_definition['value']
+	nodes['description'].text = current_definition['description']
+	nodes['categoryItem'].text = current_definition['categoryItem']
 
 func reset_editor():
 	nodes['name'].text = ''
 	nodes['value'].text = ''
+	nodes['description'].text = ''
+	nodes['categoryItem'].text = ''
 
 
 func _on_name_changed(text):
@@ -56,10 +62,10 @@ func _update_name_on_tree():
 
 func create_value() -> String:
 	var id = DialogicUtil.generate_random_id()
-	DialogicResources.set_default_definition_variable(id, 'New value', '')
+	DialogicResources.set_default_definition_variable(id, 'New value', '', 'description', 'categoryItem')
 	return id
 
 
 func save_definition():
 	if current_definition != null and current_definition['id'] != '':
-		DialogicResources.set_default_definition_variable(current_definition['id'], nodes['name'].text, nodes['value'].text)
+		DialogicResources.set_default_definition_variable(current_definition['id'], nodes['name'].text, nodes['value'].text, nodes['description'].text, nodes['categoryItem'].text)
