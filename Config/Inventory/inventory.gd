@@ -5,8 +5,10 @@ onready var inventory_slots = $GridContainer
 var holding_item = null
 
 func _ready():
-	for inv_slot in inventory_slots.get_children():
-		inv_slot.connect("gui_input", self, "slot_gui_input", [inv_slot])
+	var slots = inventory_slots.get_children()
+	for i in range(slots.size()):
+		slots[i].connect("gui_input", self, "slot_gui_input", [slots[i]])
+		slots[i].slot_index = i
 	initialize_inventory()
 	
 func initialize_inventory():
@@ -24,36 +26,55 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 		if event.button_index == BUTTON_LEFT && event.pressed:
 			if holding_item != null:
 				if !slot.item: 		#Place holding item to slot
-					slot.putIntoSlot(holding_item)
-					holding_item = null
+					left_click_empty_slot(slot)
 				else:	#Swap holding item
 					if holding_item.item_name != slot.item.item_name:
-						var temp_item = slot.item
-						slot.pickFromSlot()
-						temp_item.global_position = event.global_position
-						slot.putIntoSlot(holding_item)
-						holding_item = temp_item
+						left_click_different_item(event, slot)
 					else:
-						var category = Dialogic.get_category_variable(slot.item.item_name)
-						print(category)
-						var stack_size = int(varPlayer.Category[category])
-						print(stack_size)
-						var able_to_add = stack_size - slot.item.item_quantity
-						if able_to_add >= holding_item.item_quantity:
-							slot.item.add_item_quantity(holding_item.item_quantity)
-							holding_item.queue_free()
-							holding_item = null
-						else:
-							slot.item.add_item_quantity(able_to_add)
-							holding_item.descreade_item_quantity(able_to_add)
-						
+						left_click_same_item(slot)			
 			elif slot.item:
-				holding_item = slot.item
-				slot.pickFromSlot()
-				holding_item.global_position = get_global_mouse_position()
+				left_click_not_holding(slot)
 					
 
 func _input(_event):
 	if holding_item:
 		holding_item.global_position = get_global_mouse_position()
 
+
+func left_click_empty_slot(slot: SlotClass):
+	PlayerInventory.add_item_to_empty_slot(holding_item, slot)
+	slot.putIntoSlot(holding_item)
+	holding_item = null
+
+func left_click_different_item(event: InputEvent, slot: SlotClass):
+	PlayerInventory.remove_item(slot)
+	PlayerInventory.add_item_to_empty_slot(holding_item, slot)
+	var temp_item = slot.item
+	slot.pickFromSlot()
+	temp_item.global_position = event.global_position
+	slot.putIntoSlot(holding_item)
+	holding_item = temp_item
+
+
+func left_click_same_item(slot: SlotClass):
+	var category = Dialogic.get_category_variable(slot.item.item_name)
+	print(category)
+	var stack_size = int(PlayerInventory.Category[category])
+	print(stack_size)
+	var able_to_add = stack_size - slot.item.item_quantity
+	if able_to_add >= holding_item.item_quantity:
+		PlayerInventory.add_item_quantity(slot, holding_item.item_quantity)
+		slot.item.add_item_quantity(holding_item.item_quantity)
+		holding_item.queue_free()
+		holding_item = null
+	else:
+		PlayerInventory.add_item_quantity(slot, able_to_add)
+		slot.item.add_item_quantity(able_to_add)
+		holding_item.decrease_item_quantity(able_to_add)
+		
+
+func left_click_not_holding(slot: SlotClass):
+	PlayerInventory.remove_item(slot)
+	holding_item = slot.item
+	slot.pickFromSlot()
+	holding_item.global_position = get_global_mouse_position()

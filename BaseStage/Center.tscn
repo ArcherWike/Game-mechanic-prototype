@@ -82,9 +82,13 @@ visible = false
 
 [node name="ItemDrop" parent="." instance=ExtResource( 9 )]
 position = Vector2( 349, 125 )
+item_name = "carrot"
+quantity = 8
 
 [node name="ItemDrop2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 246, 122 )
+item_name = "carrot"
+quantity = 8
 
 [connection signal="body_entered" from="highgrass" to="highgrass" method="_on_highgrass_body_entered"]
 [connection signal="body_exited" from="highgrass" to="highgrass" method="_on_highgrass_body_exited"]

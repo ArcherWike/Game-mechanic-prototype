@@ -4,20 +4,20 @@
 	],
 	"variables": [
 		{
-			"category item": "coin",
-			"description": "kasa tu napewno jest",
-			"id": "1649864101-146",
-			"name": "bundle_filled",
-			"type": 0,
-			"value": "5"
-		},
-		{
 			"category item": "food",
 			"description": "marcheweczka",
 			"id": "1649864064-787",
 			"name": "carrot",
 			"type": 0,
 			"value": "30"
+		},
+		{
+			"category item": "coin",
+			"description": "kasa tu napewno jest",
+			"id": "1649864101-146",
+			"name": "bundle_filled",
+			"type": 0,
+			"value": "5"
 		},
 		{
 			"category item": "food",

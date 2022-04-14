@@ -41,7 +41,8 @@ func add_item_quantity(amout_to_add):
 	item_quantity += amout_to_add
 	$Label.text = String(item_quantity)
 
-func descreade_item_quantity(amount_to_remove):
+func decrease_item_quantity(amount_to_remove):
 	item_quantity -= amount_to_remove
 	$Label.text = String(item_quantity)
+	
 	
