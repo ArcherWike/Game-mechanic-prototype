@@ -37,23 +37,6 @@ func _on_Continue_pressed():
 
 var FILE_NAME: String = "res://Saves/PlayerState.txt"
 
-var player = {
-	"name": "Lauren",
-	"score": 0,
-	"level": 1,
-	"high_score": {
-		"value": 0,
-		"date": ""
-	}
-}
-
-
-func save():
-	var file = File.new()
-	file.open(FILE_NAME, File.WRITE)
-	file.store_string(to_json(player))
-	file.close()
-
 
 func _on_Save_pressed():
 	var scene = get_tree().get_current_scene().get_name()
@@ -67,10 +50,10 @@ func _on_Save_pressed():
 
 func _on_Load_pressed():
 	Globals.goto_scene(str("res://Config/Wait.tscn"), false)
-	print("dsdsa")
 	Globals.remove_recursive("res://CurrentSave/")
 	Globals.copy_recursive("res://SlotSave/", "res://CurrentSave/")
 	Globals.show_mainMenu = false
 	Dialogic.load()
+	PlayerInventory.refresh()
 	
 	

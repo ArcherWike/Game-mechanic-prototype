@@ -19,8 +19,9 @@ func _ready():
 func _on_NewGame_pressed():
 	Globals.remove_recursive("res://CurrentSave/")
 	Globals.copy_recursive("res://BaseStage/", "res://CurrentSave/")
-	Globals.goto_scene(str("res://CurrentSave/Colect.tscn"), false)
+	Globals.goto_scene(str("res://CurrentSave/Center.tscn"), false)
 	Dialogic.reset_saves()
+	#PlayerInventory.refresh()
 
 	
 
@@ -30,4 +31,5 @@ func _on_Continue_pressed():
 	Globals.copy_recursive("res://SlotSave/", "res://CurrentSave/")
 	Globals.goto_scene(str("res://CurrentSave/", Globals.saved_scene,".tscn"), false)
 	Dialogic.load()
+	PlayerInventory.refresh()
 	

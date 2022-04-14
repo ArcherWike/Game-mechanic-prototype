@@ -3,8 +3,8 @@ extends Node
 #OPTION
 var fps_mode = false
 var show_mainMenu = false
-var current_scene = "Colectr"
-var saved_scene = "Colect"
+var current_scene = "Center"
+var saved_scene = "Center"
 
 """"
 			SCENE CONFIG
@@ -41,7 +41,7 @@ func _deferred_goto_scene(path, whether_to_save):
 			push_error("error save scene")
 	#print("Lauren left ",last_scene)
 	print("Lauren go ", path)
-	#get_tree().get_current_scene().queue_free()
+	get_tree().get_current_scene().queue_free()
 	if get_tree().change_scene(path):
 		push_error("can't change scene. I go to cry")
 	

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Mechanisms/door/door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Config/SceneEntrace.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Config/MainMenu.tscn" type="PackedScene" id=4]
+
+[node name="Door" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 122, 100 )
+
+[node name="door" parent="." instance=ExtResource( 2 )]
+position = Vector2( 560, 95 )
+
+[node name="Entrace" parent="door" instance=ExtResource( 3 )]
+position = Vector2( 41.4286, 4.28572 )
+rotation = 3.14159
+scale = Vector2( 1, 0.8 )
+collision_layer = 32
+scene = "Lever"
+
+[node name="Entrace" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 107 )
+scene = "Center"
+
+[node name="Entrace2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 359, 7 )
+rotation = 1.5708
+scene = "Colect"
+
+[node name="MainMenu" parent="." instance=ExtResource( 4 )]
