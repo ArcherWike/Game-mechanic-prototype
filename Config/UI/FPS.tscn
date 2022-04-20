@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Config/FPS.gd" type="Script" id=1]
+[ext_resource path="res://Config/UI/FPS.gd" type="Script" id=1]
 
 [node name="FPS" type="Label"]
 margin_left = 15.0

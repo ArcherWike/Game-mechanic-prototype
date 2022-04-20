@@ -3,9 +3,11 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Mechanisms/door/door.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Config/SceneEntrace.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Config/MainMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Config/Levels.gd" type="Script" id=5]
 
 [node name="Door" type="Node2D"]
+position = Vector2( -1, 2 )
+script = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 122, 100 )
@@ -17,7 +19,6 @@ position = Vector2( 560, 95 )
 position = Vector2( 41.4286, 4.28572 )
 rotation = 3.14159
 scale = Vector2( 1, 0.8 )
-collision_layer = 32
 scene = "Lever"
 
 [node name="Entrace" parent="." instance=ExtResource( 3 )]
@@ -29,4 +30,5 @@ position = Vector2( 359, 7 )
 rotation = 1.5708
 scene = "Colect"
 
-[node name="MainMenu" parent="." instance=ExtResource( 4 )]
+[connection signal="body_entered" from="Entrace" to="Entrace" method="_on_Entrace_body_entered"]
+[connection signal="body_entered" from="Entrace2" to="Entrace" method="_on_Entrace2_body_entered"]

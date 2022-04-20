@@ -1,0 +1,117 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Config/TitleScreen/Entrace.gd" type="Script" id=2]
+[ext_resource path="res://Dialogue NPC/Base/BaseDialogueNPC.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Dialogue NPC/Base/keyE.png" type="Texture" id=5]
+[ext_resource path="res://Dialogue NPC/Base/dialog In (24x8).png" type="Texture" id=6]
+[ext_resource path="res://Config/ItemDrop.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.5, 59 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 31.5, 30 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 34, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 34, 0, 34, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 68, 0, 34, 16 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "dialog",
+"speed": 3.0
+} ]
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 40.1123
+
+[node name="Quest" type="Node2D"]
+position = Vector2( 215, 129 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+collision_mask = 125
+
+[node name="Entrace" type="Area2D" parent="."]
+position = Vector2( -206, -3 )
+collision_layer = 32
+collision_mask = 2
+script = ExtResource( 2 )
+scene = "Colect"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entrace"]
+shape = SubResource( 1 )
+
+[node name="Position2D" type="Position2D" parent="Entrace"]
+position = Vector2( 60, 0 )
+
+[node name="NPC" type="KinematicBody2D" parent="."]
+position = Vector2( 235, 4 )
+
+[node name="NPCSprite" type="Sprite" parent="NPC"]
+self_modulate = Color( 1, 0.380392, 0.380392, 1 )
+texture = ExtResource( 4 )
+
+[node name="NPCCollision" type="CollisionShape2D" parent="NPC"]
+position = Vector2( -1.5, 1 )
+shape = SubResource( 13 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPC"]
+position = Vector2( 1, -26 )
+z_index = 2
+frames = SubResource( 8 )
+animation = "dialog"
+frame = 2
+playing = true
+
+[node name="Interract" type="Area2D" parent="NPC"]
+script = ExtResource( 3 )
+Dialog_Timeline = "Test"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Interract"]
+shape = SubResource( 12 )
+
+[node name="keyE" type="Sprite" parent="NPC/Interract"]
+modulate = Color( 1, 1, 1, 0.411765 )
+position = Vector2( 21, -36 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 5 )
+
+[node name="ItemDrop" parent="." instance=ExtResource( 8 )]
+position = Vector2( 59, 132 )
+item_name = "carrot"
+quantity = 7
+
+[node name="ItemDrop2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 227, 123 )
+item_name = "carrot"
+quantity = 7
+
+[node name="ItemDrop3" parent="." instance=ExtResource( 8 )]
+position = Vector2( -67, 140 )
+item_name = "carrot"
+quantity = 6
+
+[node name="ItemDrop4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 18, -91 )
+item_name = "carrot"
+quantity = 4
+
+[node name="ItemDrop5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 150, -85 )
+item_name = "carrot"
+quantity = 5

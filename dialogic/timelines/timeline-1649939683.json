@@ -1,0 +1,133 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1649953967.cfg"
+		},
+		{
+			"character": "character-1649939843.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Witaj! Dasz mi jakieś wskazówki?"
+		},
+		{
+			"condition": "",
+			"definition": "1649957417-648",
+			"event_id": "dialogic_012",
+			"value": "None"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1649939705.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Najpierw przynies mi 20 marfewek"
+		},
+		{
+			"character": "character-1649939705.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Za darmo nie ma nic na tej wyspie"
+		},
+		{
+			"definition": "1649957417-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "Przynies mi marfefki"
+		},
+		{
+			"condition": "",
+			"definition": "1649957417-648",
+			"event_id": "dialogic_012",
+			"value": "Przynies mi marfefki"
+		},
+		{
+			"condition": "<",
+			"definition": "1649864064-787",
+			"event_id": "dialogic_012",
+			"value": "20"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Zapomniales? Kce marfefki"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": ">=",
+			"definition": "1649864064-787",
+			"event_id": "dialogic_012",
+			"value": "20"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Co chesz zrobic?"
+		},
+		{
+			"choice": "Porozmawiaj",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1649939843.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ladna dzis pogoda, nieprawdaz?"
+		},
+		{
+			"character": "character-1649939705.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Taak! Naprawde dzisiaj fajnie"
+		},
+		{
+			"choice": "Daj marfefki",
+			"condition": ">=",
+			"definition": "1649864064-787",
+			"event_id": "dialogic_011",
+			"value": "10"
+		},
+		{
+			"character": "character-1649939843.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Prosze o to Twoje marfefki"
+		},
+		{
+			"character": "character-1649939705.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bardzo dziekuje, oto Twoja nagroda"
+		},
+		{
+			"definition": "1649864064-787",
+			"event_id": "dialogic_014",
+			"operation": "-",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "10"
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1649939683.json",
+		"name": "w"
+	}
+}

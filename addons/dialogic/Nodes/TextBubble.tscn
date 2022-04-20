@@ -44,9 +44,9 @@ tracks/0/keys = {
 }
 
 [sub_resource type="StyleBoxFlat" id=6]
-content_margin_left = 20.0
-content_margin_right = 20.0
-content_margin_bottom = -170.0
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 0.0
 bg_color = Color( 1, 1, 1, 0 )
 expand_margin_left = 10.0
 
@@ -55,14 +55,11 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -455.0
-margin_top = 399.0
-margin_right = 455.0
-margin_bottom = 560.0
+margin_left = -267.0
+margin_top = -178.0
+margin_right = 324.0
+margin_bottom = -11.0
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -76,31 +73,18 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -3.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="TextContainer" type="VBoxContainer" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 12.0
-margin_right = -10.0
-margin_bottom = -12.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="TextContainer"]
-margin_top = 11.0
-margin_right = 890.0
-margin_bottom = 125.0
+margin_left = 20.0
+margin_top = 10.0
+margin_right = -20.0
+margin_bottom = -10.0
 focus_mode = 2
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 custom_colors/selection_color = Color( 0, 0, 0, 0 )
@@ -111,37 +95,22 @@ custom_fonts/normal_font = ExtResource( 1 )
 custom_styles/focus = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "Placeholder text for testing an formatting. 
-Placeholder text for testing an formatting. 
-adsd"
-visible_characters = 0
-percent_visible = 0.0
+bbcode_text = "Placeholder text for testing and formatting."
 meta_underlined = false
-text = "Placeholder text for testing an formatting. 
-Placeholder text for testing an formatting. 
-adsd"
-fit_content_height = true
+text = "Placeholder text for testing and formatting."
 selection_enabled = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="NextIndicatorContainer" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="NextIndicator" type="TextureRect" parent="NextIndicatorContainer"]
-margin_top = -10.0
-margin_right = 51.0
-margin_bottom = 41.0
+margin_left = 511.0
+margin_top = 93.0
+margin_right = 562.0
+margin_bottom = 144.0
 texture = ExtResource( 3 )
 stretch_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NextIndicatorContainer/NextIndicator"]
 autoplay = "Up and down"
@@ -196,6 +165,3 @@ __meta__ = {
 [node name="WritingTimer" type="Timer" parent="."]
 
 [node name="Tween" type="Tween" parent="."]
-
-[node name="sounds" type="AudioStreamPlayer" parent="."]
-autoplay = true

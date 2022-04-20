@@ -89,7 +89,6 @@ config/icon="res://icon.png"
 Globals="*res://Singletons/Globals.gd"
 varPlayer="*res://Singletons/Playerscript.gd"
 PlayerInventory="*res://Singletons/PlayerInventory.gd"
-JsonData="*res://Singletons/JSONData.gd"
 
 [display]
 
@@ -140,6 +139,11 @@ inventory={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+interract={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
@@ -149,6 +153,7 @@ inventory={
 2d_physics/layer_4="spikes"
 2d_physics/layer_5="obstacles"
 2d_physics/layer_6="interract"
+2d_physics/layer_7="NPC"
 
 [physics]
 

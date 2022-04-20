@@ -18,12 +18,12 @@ color = Color( 0.764706, 0.764706, 0.764706, 0.584314 )
 [node name="quest" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -27.5
-margin_right = 27.5
-margin_bottom = 31.0
+margin_left = -31.0
+margin_top = 6.0
+margin_right = 24.0
+margin_bottom = 37.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
-custom_fonts/font = ExtResource( 2 )
 text = "Quest"
 
 [node name="Label" type="Label" parent="."]
@@ -31,8 +31,10 @@ modulate = Color( 0, 0, 0, 1 )
 anchor_top = 0.617
 anchor_right = 1.336
 anchor_bottom = 2.204
-margin_left = 25.0
-margin_top = -32.7
-margin_right = -105.4
-margin_bottom = -177.4
+margin_left = 10.0
+margin_top = -37.7
+margin_right = -60.4
+margin_bottom = -174.4
+rect_min_size = Vector2( 130, 200 )
+custom_fonts/font = ExtResource( 2 )
 text = "Pozamiataj"

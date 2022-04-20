@@ -15,3 +15,7 @@ func _on_Entrace_body_entered(body):
 		Globals.goto_scene(str("res://BaseStage/",scene,".tscn"), true)
 		return true
 		#self.disabled = false
+
+
+func _on_Entrace2_body_entered(body):
+	pass # Replace with function body.

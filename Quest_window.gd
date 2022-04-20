@@ -9,6 +9,7 @@ enum{
 
 
 func _process(delta):
+	$Label.set_text(Dialogic.get_variable("quest"))
 	match state:
 		small:
 			small_state(delta)

@@ -1,0 +1,145 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1649953967.cfg"
+		},
+		{
+			"character": "character-1649939843.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Witaj"
+		},
+		{
+			"character": "character-1649939705.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hej"
+		},
+		{
+			"condition": "",
+			"definition": "1649957417-648",
+			"event_id": "dialogic_012",
+			"value": "None"
+		},
+		{
+			"character": "character-1649939843.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Moglbys mi pomoc?"
+		},
+		{
+			"character": "character-1649939705.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Potrzebuje marfewek! Przynies mi 20 to pogadamy"
+		},
+		{
+			"definition": "1649957417-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "Przynies mi 20 marfewek"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1649957417-648",
+			"event_id": "dialogic_012",
+			"value": "Przynies mi 20 marfewek"
+		},
+		{
+			"condition": "<",
+			"definition": "1649864064-787",
+			"event_id": "dialogic_012",
+			"value": "20"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Zapomniales? Gdzie moje marfewki??!"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"definition": "1649957417-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "Przynies mi 20 marfewek"
+		},
+		{
+			"condition": ">=",
+			"definition": "1649864064-787",
+			"event_id": "dialogic_012",
+			"value": "20"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "CO chcesz zrobic"
+		},
+		{
+			"choice": "Daj marfwfki",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1649939843.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Przynioslem marfefki"
+		},
+		{
+			"definition": "1649957417-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "None"
+		},
+		{
+			"choice": "pogadaj",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1649939843.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ladna mamy dzis pogode"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1649957670.json",
+		"name": "Test"
+	}
+}

@@ -54,6 +54,6 @@ func _on_Load_pressed():
 	Globals.copy_recursive("res://SlotSave/", "res://CurrentSave/")
 	Globals.show_mainMenu = false
 	Dialogic.load()
-	PlayerInventory.refresh()
+	PlayerInventory.load_item_to_inventory()
 	
 	

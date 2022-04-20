@@ -8,17 +8,18 @@ var NUM_INVENTORY_SLOTS = 20
 
 var Category = {"food": '32', "item": '64', 'coin': '99'}
 
+var all_item_list = ["apple", "carrot", "bundle_filled"]
 #var apl = Dialogic.get_variable("apple")
 
 
 var inventory = {
-	0: ["apple", 20],
-	1: ["carrot", 30],
-	2: ["carrot", 30],
-	3: ["carrot", 30]
+	
 }
 
-
+#0: ["apple", 20],
+#	1: ["carrot", 30],
+#	2: ["carrot", 30],
+#	3: ["carrot", 30]
 
 func add_item(item_name, item_quantity):
 	for item in inventory:
@@ -42,12 +43,24 @@ func add_item(item_name, item_quantity):
 			return
 
 
-func refresh():
+func load_item_to_inventory():
+	for item_name in all_item_list:
+		print(item_name)
+		var amount = int(Dialogic.get_variable(item_name))
+		if amount > 0:
+			add_item(str(item_name), amount)
+			print(inventory)
+
+
+
+
+
+#func refresh():
 	#Dialogic.set_variable(item_name, int(amount)+quantity)
-	for item in inventory:
-		var amount = Dialogic.get_variable(inventory[item][0])
-		print(inventory[item][0])
-		inventory[item][1] = amount
+#	for item in inventory:
+#		var amount = Dialogic.get_variable(inventory[item][0])
+#		print(inventory[item][0])
+#		inventory[item][1] = amount
 		
 		#inventory[item][1] = String()
 
