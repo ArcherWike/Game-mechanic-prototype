@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Config/TitleScreen/Entrace.gd" type="Script" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Dialogue NPC/Base/keyE.png" type="Texture" id=5]
 [ext_resource path="res://Dialogue NPC/Base/dialog In (24x8).png" type="Texture" id=6]
+[ext_resource path="res://Config/Levels.gd" type="Script" id=7]
 [ext_resource path="res://Config/ItemDrop.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Dialogue NPC/Wladyslaf.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.5, 59 )
@@ -38,10 +40,11 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=12]
-radius = 40.1123
+radius = 80.025
 
 [node name="Quest" type="Node2D"]
 position = Vector2( 215, 129 )
+script = ExtResource( 7 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 collision_mask = 125
@@ -75,7 +78,6 @@ position = Vector2( 1, -26 )
 z_index = 2
 frames = SubResource( 8 )
 animation = "dialog"
-frame = 2
 playing = true
 
 [node name="Interract" type="Area2D" parent="NPC"]
@@ -83,12 +85,45 @@ script = ExtResource( 3 )
 Dialog_Timeline = "Test"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Interract"]
+position = Vector2( 0, 1 )
 shape = SubResource( 12 )
 
 [node name="keyE" type="Sprite" parent="NPC/Interract"]
 modulate = Color( 1, 1, 1, 0.411765 )
-position = Vector2( 21, -36 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 12.55, -43 )
+scale = Vector2( 1.00476, 0.9 )
+texture = ExtResource( 5 )
+
+[node name="Wladyslaf" type="KinematicBody2D" parent="."]
+position = Vector2( -98, -38 )
+
+[node name="NPCSprite" type="Sprite" parent="Wladyslaf"]
+modulate = Color( 0, 1, 0.0156863, 1 )
+self_modulate = Color( 0.454902, 1, 0, 1 )
+texture = ExtResource( 4 )
+
+[node name="NPCCollision" type="CollisionShape2D" parent="Wladyslaf"]
+position = Vector2( -1.5, 1 )
+shape = SubResource( 13 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Wladyslaf"]
+position = Vector2( 1, -26 )
+z_index = 2
+frames = SubResource( 8 )
+animation = "dialog"
+playing = true
+
+[node name="Interract" type="Area2D" parent="Wladyslaf"]
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wladyslaf/Interract"]
+position = Vector2( 0, 1 )
+shape = SubResource( 12 )
+
+[node name="keyE" type="Sprite" parent="Wladyslaf/Interract"]
+modulate = Color( 1, 1, 1, 0.411765 )
+position = Vector2( 12.55, -43 )
+scale = Vector2( 1.00476, 0.9 )
 texture = ExtResource( 5 )
 
 [node name="ItemDrop" parent="." instance=ExtResource( 8 )]
@@ -115,3 +150,9 @@ quantity = 4
 position = Vector2( 150, -85 )
 item_name = "carrot"
 quantity = 5
+
+[connection signal="body_entered" from="Entrace" to="Entrace" method="_on_Entrace_body_entered"]
+[connection signal="body_entered" from="NPC/Interract" to="NPC/Interract" method="_on_Interract_body_entered"]
+[connection signal="body_exited" from="NPC/Interract" to="NPC/Interract" method="_on_Interract_body_exited"]
+[connection signal="body_entered" from="Wladyslaf/Interract" to="Wladyslaf/Interract" method="_on_Interract_body_entered"]
+[connection signal="body_exited" from="Wladyslaf/Interract" to="Wladyslaf/Interract" method="_on_Interract_body_exited"]

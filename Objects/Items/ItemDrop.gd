@@ -3,7 +3,8 @@ extends Area2D
 export(String) var item_name
 export(int) var quantity = 1
 
-
+func _ready():
+	$Sprite.texture = load("res://Objects/Items/equipment/"+ item_name +".png")
 
 
 func _on_Area2D_body_entered(body):

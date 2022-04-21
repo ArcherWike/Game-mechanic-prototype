@@ -5,27 +5,11 @@
 	"variables": [
 		{
 			"category item": "food",
-			"description": "marcheweczka",
-			"id": "1649864064-787",
-			"name": "carrot",
-			"type": 0,
-			"value": "19"
-		},
-		{
-			"category item": "food",
 			"description": "jedzonko",
 			"id": "1649862279-648",
 			"name": "apple",
 			"type": 0,
 			"value": "20"
-		},
-		{
-			"category item": "coin",
-			"description": "kasa tu napewno jest",
-			"id": "1649864101-146",
-			"name": "bundle_filled",
-			"type": 0,
-			"value": "5"
 		},
 		{
 			"category item": "categoryItem",
@@ -34,6 +18,22 @@
 			"name": "quest",
 			"type": 0,
 			"value": "None"
+		},
+		{
+			"category item": "food",
+			"description": "marcheweczka",
+			"id": "1649864064-787",
+			"name": "carrot",
+			"type": 0,
+			"value": "2"
+		},
+		{
+			"category item": "coin",
+			"description": "kasa tu napewno jest",
+			"id": "1649864101-146",
+			"name": "bundle_filled",
+			"type": 0,
+			"value": "5"
 		}
 	]
 }

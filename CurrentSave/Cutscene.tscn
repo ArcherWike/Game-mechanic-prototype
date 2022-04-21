@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Config/TitleScreen/Entrace.gd" type="Script" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Cutscene/Intro.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Config/SceneEntrace.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Mechanisms/Tv/tv.png" type="Texture" id=6]
+[ext_resource path="res://Cutscene/Intro.webm" type="VideoStream" id=7]
+[ext_resource path="res://Objects/Mechanisms/Tv/tv.gd" type="Script" id=8]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 204.53
+
+[node name="Cutscene" type="Node2D"]
+position = Vector2( 1, 1 )
+
+[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 49.4645, 109.464 )
+collision_layer = 2
+collision_mask = 61
+script = ExtResource( 2 )
+
+[node name="tv" type="Area2D" parent="."]
+pause_mode = 2
+position = Vector2( 489, 146 )
+collision_layer = 33
+collision_mask = 3
+script = ExtResource( 8 )
+
+[node name="Tv" type="Sprite" parent="tv"]
+position = Vector2( -12.6429, 13.25 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 6 )
+
+[node name="trigger" type="CollisionShape2D" parent="tv"]
+position = Vector2( -23.6429, 30.25 )
+shape = SubResource( 3 )
+
+[node name="VideoPlayer" type="VideoPlayer" parent="tv" instance=ExtResource( 3 )]
+anchor_right = 100.0
+margin_left = -100.643
+margin_top = -37.75
+margin_right = 72.3572
+margin_bottom = 77.25
+rect_rotation = -2.35321
+stream = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tv"]
+position = Vector2( 0, 6 )
+polygon = PoolVector2Array( -100, 64, 70, 59, 66, -57, -96, -35 )
+
+[node name="Entrace" type="Area2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( -8, 112 )
+collision_layer = 32
+collision_mask = 2
+script = ExtResource( 1 )
+scene = "Door"
+
+[node name="Position2D" type="Position2D" parent="Entrace"]
+position = Vector2( 60, 0 )
+
+[connection signal="body_entered" from="Entrace" to="Entrace" method="_on_Entrace_body_entered"]

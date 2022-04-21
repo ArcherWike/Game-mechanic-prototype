@@ -42,6 +42,9 @@ func add_item(item_name, item_quantity):
 			inventory[i] = [item_name, item_quantity]
 			return
 
+func steal_item(item_name, item_quantity):
+	item_quantity *= -1
+	add_item(item_name, item_quantity)
 
 func load_item_to_inventory():
 	for item_name in all_item_list:

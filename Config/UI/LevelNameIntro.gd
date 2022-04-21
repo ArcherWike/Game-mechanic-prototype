@@ -3,7 +3,6 @@ extends CanvasLayer
 func _show_name():
 	$AnimationPlayer.play("ShowLevelName")
 	yield( $AnimationPlayer, "animation_finished" )
-	print("DSsd")
 	queue_free()
 
 func _ready():

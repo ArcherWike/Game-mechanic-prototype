@@ -16,19 +16,22 @@ position = Vector2( 122, 100 )
 position = Vector2( 560, 95 )
 
 [node name="Entrace" parent="door" instance=ExtResource( 3 )]
-position = Vector2( 41.4286, 4.28572 )
+position = Vector2( 35.7142, 8.57144 )
 rotation = 3.14159
 scale = Vector2( 1, 0.8 )
 scene = "Lever"
 
 [node name="Entrace" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, 107 )
+position = Vector2( 13, 105 )
 scene = "Center"
 
-[node name="Entrace2" parent="." instance=ExtResource( 3 )]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Entrace" parent="Node2D" instance=ExtResource( 3 )]
 position = Vector2( 359, 7 )
 rotation = 1.5708
 scene = "Colect"
 
+[connection signal="body_entered" from="door/Entrace" to="door/Entrace" method="_on_Entrace_body_entered"]
 [connection signal="body_entered" from="Entrace" to="Entrace" method="_on_Entrace_body_entered"]
-[connection signal="body_entered" from="Entrace2" to="Entrace" method="_on_Entrace2_body_entered"]
+[connection signal="body_entered" from="Node2D/Entrace" to="Node2D/Entrace" method="_on_Entrace_body_entered"]

@@ -1,9 +1,10 @@
 extends Area2D
+
 var active = false
 export(String) var Dialog_Timeline
-export(String) var quest_name = "Quest NPC1"
-export(int) var required_amount = 10
-export(String) var item_name = "carrot"
+export(String) var quest_name = "Quest Wladyslaf"
+export(int) var required_amount = 12
+export(String) var item_name = "bundle_filled"
 # Called when the node enters the scene tree for the first time.
 
 func _process(delta):
@@ -16,17 +17,17 @@ func _input(event):
 #	if get_node_or_null('DialogicNode') == null:
 	if event.is_action_pressed("interract") and active:
 		var quest_status = Quest.get_status(quest_name)
-		Globals.current_quest = quest_name
 		match quest_status:
 			Globals.QuestStatus.NONEXISTENT:
 				Quest.accept_quest(quest_name)
 				print(quest_status)
 			Globals.QuestStatus.STARTED:
+				Globals.current_quest = quest_name
 				print(quest_status)
 				if int(Dialogic.get_variable(item_name)) >= required_amount:
 					var amount = Dialogic.get_variable(item_name)
 					Dialogic.set_variable(item_name, int(amount)- required_amount)
-					PlayerInventory.steal_item(item_name, 10)
+					print(Dialogic.get_variable(item_name))
 					
 					Quest.change_status(quest_name, Globals.QuestStatus.COMPLETED)
 					#PlayerInventory.add_item(item_name, )

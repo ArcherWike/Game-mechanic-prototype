@@ -105,3 +105,26 @@ func remove_recursive(path):
 		#directory.remove(path)
 	else:
 		print("Error removing " + path)
+
+
+
+
+
+#_________________________________________________________
+#				QUEST SYSTEM
+#----------------------------------------------------------
+
+enum QuestStatus {
+	NONEXISTENT,
+	NOT_STARTED
+	STARTED,
+	COMPLETED,
+}
+
+var quest_list = {}
+
+var quest_status = QuestStatus.NOT_STARTED
+var dialogue_state = 0
+var current_quest = ""
+
+############################################################

@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Objects/Items/ItemDrop.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Config/TitleScreen/Entrace.gd" type="Script" id=3]
+[ext_resource path="res://Config/Levels.gd" type="Script" id=4]
 [ext_resource path="res://Objects/Items/equipment/bundle_filled.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -105,8 +106,105 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=10]
+resource_name = "Float"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Float"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "Float"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 5.5, 59 )
+
 [node name="Colect" type="Node2D"]
-position = Vector2( -1, 1 )
+position = Vector2( 0, 1 )
+script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 168, 84 )
@@ -125,11 +223,11 @@ shape = SubResource( 2 )
 position = Vector2( 60, 0 )
 
 [node name="ItemDrop" type="Area2D" parent="."]
-position = Vector2( 318, 185 )
+position = Vector2( 521, 180 )
 collision_layer = 32
 collision_mask = 2
 script = ExtResource( 1 )
-item_name = "bundle_filled"
+item_name = "carrot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDrop"]
 shape = SubResource( 1 )
@@ -144,11 +242,11 @@ anims/Float = SubResource( 4 )
 anims/RESET = SubResource( 3 )
 
 [node name="ItemDrop2" type="Area2D" parent="."]
-position = Vector2( 318, 185 )
+position = Vector2( 394, 89 )
 collision_layer = 32
 collision_mask = 2
 script = ExtResource( 1 )
-item_name = "bundle_filled"
+item_name = "carrot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDrop2"]
 shape = SubResource( 1 )
@@ -163,11 +261,11 @@ anims/Float = SubResource( 5 )
 anims/RESET = SubResource( 6 )
 
 [node name="ItemDrop3" type="Area2D" parent="."]
-position = Vector2( 318, 185 )
+position = Vector2( 568, 76 )
 collision_layer = 32
 collision_mask = 2
 script = ExtResource( 1 )
-item_name = "bundle_filled"
+item_name = "carrot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDrop3"]
 shape = SubResource( 1 )
@@ -181,6 +279,86 @@ autoplay = "Float"
 anims/Float = SubResource( 7 )
 anims/RESET = SubResource( 8 )
 
+[node name="ItemDrop4" type="Area2D" parent="."]
+position = Vector2( 339, 247 )
+collision_layer = 32
+collision_mask = 2
+script = ExtResource( 1 )
+item_name = "bundle_filled"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDrop4"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="ItemDrop4"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ItemDrop4"]
+root_node = NodePath("../Sprite")
+autoplay = "Float"
+anims/Float = SubResource( 10 )
+anims/RESET = SubResource( 11 )
+
+[node name="ItemDrop5" type="Area2D" parent="."]
+position = Vector2( 172, 262 )
+collision_layer = 32
+collision_mask = 2
+script = ExtResource( 1 )
+item_name = "bundle_filled"
+quantity = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDrop5"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="ItemDrop5"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ItemDrop5"]
+root_node = NodePath("../Sprite")
+autoplay = "Float"
+anims/Float = SubResource( 12 )
+anims/RESET = SubResource( 13 )
+
+[node name="ItemDrop6" type="Area2D" parent="."]
+position = Vector2( 34, 240 )
+collision_layer = 32
+collision_mask = 2
+script = ExtResource( 1 )
+item_name = "bundle_filled"
+quantity = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDrop6"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="ItemDrop6"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ItemDrop6"]
+root_node = NodePath("../Sprite")
+autoplay = "Float"
+anims/Float = SubResource( 14 )
+anims/RESET = SubResource( 15 )
+
+[node name="GOQuest" type="Node2D" parent="."]
+
+[node name="Entrace" type="Area2D" parent="GOQuest"]
+position = Vector2( 305, 4 )
+rotation = 1.5708
+collision_layer = 32
+collision_mask = 2
+script = ExtResource( 3 )
+scene = "Quest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GOQuest/Entrace"]
+shape = SubResource( 9 )
+
+[node name="Position2D" type="Position2D" parent="GOQuest/Entrace"]
+position = Vector2( 60, 0 )
+
+[connection signal="body_entered" from="Entrace" to="Entrace" method="_on_Entrace_body_entered"]
 [connection signal="body_entered" from="ItemDrop" to="ItemDrop" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="ItemDrop2" to="ItemDrop2" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="ItemDrop3" to="ItemDrop3" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="ItemDrop4" to="ItemDrop4" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="ItemDrop5" to="ItemDrop5" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="ItemDrop6" to="ItemDrop6" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="GOQuest/Entrace" to="GOQuest/Entrace" method="_on_Entrace_body_entered"]

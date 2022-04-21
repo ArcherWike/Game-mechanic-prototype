@@ -17,5 +17,3 @@ func _on_Entrace_body_entered(body):
 		#self.disabled = false
 
 
-func _on_Entrace2_body_entered(body):
-	pass # Replace with function body.
