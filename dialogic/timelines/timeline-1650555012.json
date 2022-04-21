@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1649939705.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Zapomniales??? Przynies mi 15 marfewek!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1650555012.json",
+		"name": "W_1-pending"
+	}
+}

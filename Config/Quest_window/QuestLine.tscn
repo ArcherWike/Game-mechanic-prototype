@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/Interface/set_active.png" type="Texture" id=1]
+[ext_resource path="res://Config/Quest_window/QuestLine.gd" type="Script" id=2]
+
+[node name="QuestLine" type="VBoxContainer"]
+margin_top = 84.0
+margin_right = 641.0
+margin_bottom = 151.0
+script = ExtResource( 2 )
+
+[node name="LabelQuest" type="Label" parent="."]
+margin_right = 641.0
+margin_bottom = 14.0
+text = "QUEST:"
+align = 1
+
+[node name="QuestName" type="Label" parent="."]
+margin_left = 10.0
+margin_top = 18.0
+margin_right = 641.0
+margin_bottom = 32.0
+text = "Name"
+
+[node name="Description" type="Label" parent="."]
+margin_top = 36.0
+margin_right = 641.0
+margin_bottom = 50.0
+text = "Description"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_top = 54.0
+margin_right = 641.0
+margin_bottom = 81.0
+size_flags_horizontal = 9
+size_flags_vertical = 8
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 1 )
+stretch_mode = 5
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

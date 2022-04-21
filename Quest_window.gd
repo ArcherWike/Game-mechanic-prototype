@@ -1,5 +1,7 @@
 extends Control
 
+onready var quest_list = $AllQuest/ScrollContainer/VBoxContainer
+
 var state = small
 enum{
 	small,
@@ -11,15 +13,8 @@ func _ready():
 
 
 func _process(delta):
-	var text = ""
-	text += "Started:\n"
-	for quest in Quest.list(Globals.QuestStatus.STARTED):
-		text += "  %s\n" % quest
-	#$Label.set_text(Dialogic.get_variable("quest"))
-	$AllQuest/Label.set_text(text)
-	
 	if Globals.current_quest != "":
-		$SmallWindow2/quest.set_text(Globals.current_quest)
+		$SmallWindow2/quest.set_text(str(Globals.current_quest)+"\n "+str(Quest.get_description(Globals.current_quest)))
 
 	match state:
 		small:
@@ -36,7 +31,15 @@ func small_state(_delta):
 
 func maximalize_state(_delta):
 	if Input.is_action_just_pressed("change_visibility_quest"):
-		#self.set_size(Vector2(400, 300))
+		quest_list.clear()		
+		for quest in Quest.list(Globals.QuestStatus.STARTED):
+			print(quest)
+			quest_list.add_quest(quest)
+				
+				#self.set_size(Vector2(400, 300))
 		$SmallWindow2.visible = false
 		$AllQuest.visible = true
 		state = small
+		
+		
+

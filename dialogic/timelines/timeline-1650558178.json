@@ -1,0 +1,21 @@
+{
+	"events": [
+		{
+			"character": "character-1649939705.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Przynies mi 10 bundle_filled"
+		},
+		{
+			"character": "character-1649939843.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ok, juz lece!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1650558178.json",
+		"name": "q1-T-bring"
+	}
+}

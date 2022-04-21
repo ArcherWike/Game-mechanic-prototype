@@ -16,30 +16,29 @@ func _ready():
 #	pass
 func get_status(quest_name: String):
 	if Globals.quest_list.has(quest_name):
-		return Globals.quest_list[quest_name]
+		return Globals.quest_list[quest_name][0]
 	else:
 		return Globals.QuestStatus.NONEXISTENT
 
 
-func accept_quest(quest_name: String):
+func accept_quest(quest_name: String, description:String):
 	if Globals.quest_list.has(quest_name):
 		return false
 	else:
 		#Globals.quest_list["COMPLETED"].append(quest_name)
-		Globals.quest_list[quest_name] = Globals.QuestStatus.STARTED
-		#Globals.quest_list("COMPLETED")[0].append(quest_name) = Globals.QuestStatus.STARTED
+		Globals.quest_list[quest_name] = [Globals.QuestStatus.STARTED, description]
 		print(Globals.quest_list)
-		print(Globals.quest_status)
-		print(Globals.QuestStatus)
+		#Globals.quest_list("COMPLETED")[0].append(quest_name) = Globals.QuestStatus.STARTED
 		return true
 
 
 func change_status(quest_name: String, status:int):
 	if Globals.quest_list.has(quest_name):
-		Globals.quest_list[quest_name] = status
+		Globals.quest_list[quest_name][0] = status
 		return true
 	else:
 		return false
+
 
 
 
@@ -48,9 +47,12 @@ func list(status:int):
 	if status == -1:
 		return Globals.quest_list.keys()
 	var result = []
-	for quest in Globals.quest_list.keys():
-		#print(Globals.quest_list[quest])
-		if Globals.quest_list[quest] == status:
-			result.append(quest)
+	for quest in Globals.quest_list:
+		if Globals.quest_list[quest][0] == status:
+			var add_text = (str(quest))
+			result.append(add_text)
 	return result
 
+
+func get_description(quest_name:String):
+	return Globals.quest_list[quest_name][1]
