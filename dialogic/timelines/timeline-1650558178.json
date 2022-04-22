@@ -11,6 +11,10 @@
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Ok, juz lece!"
+		},
+		{
+			"emit_signal": "change_quest",
+			"event_id": "dialogic_040"
 		}
 	],
 	"metadata": {

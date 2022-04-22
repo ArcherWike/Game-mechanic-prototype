@@ -8,7 +8,9 @@ export(String) var item_name = "carrot"
 export(String) var description = "Przynies 15 marfwewk dla Wladyslafa"
 # Called when the node enters the scene tree for the first time.
 
-func _process(delta):
+
+
+func _process(_delta):
 	$keyE.visible = active
 
 func _input(event):
@@ -22,7 +24,6 @@ func _input(event):
 				Globals.QuestStatus.NONEXISTENT:				
 					Quest.accept_quest(quest_name, description)
 					q1_initial()
-					Globals.current_quest = quest_name
 					
 
 				Globals.QuestStatus.STARTED:
@@ -50,8 +51,12 @@ func q1_initial():
 	get_tree().paused = true
 	var dialog = Dialogic.start("/Testing_levels/Quest/Wladyslaf/W_1-bring")
 	dialog.pause_mode = Node.PAUSE_MODE_PROCESS
-	dialog.connect('timeline_end', self, 'unpause')
 	add_child(dialog)
+	dialog.connect("dialogic_signal",self, 'dialogic_signal')
+	dialog.connect('timeline_end', self, 'unpause')
+	
+	
+	
 
 
 func q1_pending():
@@ -67,6 +72,11 @@ func q1_delivered():
 	dialog.pause_mode = Node.PAUSE_MODE_PROCESS
 	dialog.connect('timeline_end', self, 'unpause')
 	add_child(dialog)
+#-----------------
+func dialogic_signal(arg):
+	if arg == "change_quest":
+		Globals.current_quest = quest_name
+		print('gh')
 
 #------------------------------------------------------------
 func unpause(_timeline_name):

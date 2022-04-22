@@ -246,7 +246,7 @@ position = Vector2( 394, 89 )
 collision_layer = 32
 collision_mask = 2
 script = ExtResource( 1 )
-item_name = "carrot"
+item_name = "cooked_porkchop"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDrop2"]
 shape = SubResource( 1 )
@@ -303,8 +303,8 @@ position = Vector2( 172, 262 )
 collision_layer = 32
 collision_mask = 2
 script = ExtResource( 1 )
-item_name = "bundle_filled"
-quantity = 6
+item_name = "cooked_porkchop"
+quantity = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDrop5"]
 shape = SubResource( 1 )
@@ -319,12 +319,12 @@ anims/Float = SubResource( 12 )
 anims/RESET = SubResource( 13 )
 
 [node name="ItemDrop6" type="Area2D" parent="."]
-position = Vector2( 34, 240 )
+position = Vector2( 83, 191 )
 collision_layer = 32
 collision_mask = 2
 script = ExtResource( 1 )
-item_name = "bundle_filled"
-quantity = 4
+item_name = "cooked_porkchop"
+quantity = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDrop6"]
 shape = SubResource( 1 )

@@ -1,0 +1,21 @@
+{
+	"events": [
+		{
+			"character": "character-1649939843.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Prosze mam ziemnioczki"
+		},
+		{
+			"character": "character-1649939705.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bardzo dziekuje. ZApraszam zaraz na obiadek"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1650610360.json",
+		"name": "L3-delivered"
+	}
+}

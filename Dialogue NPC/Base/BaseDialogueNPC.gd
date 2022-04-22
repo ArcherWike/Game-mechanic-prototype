@@ -48,8 +48,9 @@ func q1_initial():
 	get_tree().paused = true
 	var dialog = Dialogic.start("/Testing_levels/Quest/TesterNPC/q1-T-bring")
 	dialog.pause_mode = Node.PAUSE_MODE_PROCESS
-	dialog.connect('timeline_end', self, 'unpause')
 	add_child(dialog)
+	dialog.connect("dialogic_signal",self, 'dialogic_signal')
+	dialog.connect('timeline_end', self, 'unpause')
 	
 	
 	
@@ -68,6 +69,12 @@ func q1_delivered():
 	dialog.pause_mode = Node.PAUSE_MODE_PROCESS
 	dialog.connect('timeline_end', self, 'unpause')
 	add_child(dialog)
+	#-----------------
+func dialogic_signal(arg):
+	if arg == "change_quest":
+		Globals.current_quest = quest_name
+		print('gh')
+
 #_______________________________________________________________
 func unpause(_timeline_name):
 	get_tree().paused = false

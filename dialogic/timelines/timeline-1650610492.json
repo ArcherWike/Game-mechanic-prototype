@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1649939705.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Obiad jest u mnie w domku"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1650610492.json",
+		"name": "L4-end"
+	}
+}

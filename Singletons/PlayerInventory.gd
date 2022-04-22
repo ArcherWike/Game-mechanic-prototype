@@ -8,7 +8,7 @@ var NUM_INVENTORY_SLOTS = 20
 
 var Category = {"food": '32', "item": '64', 'coin': '99'}
 
-var all_item_list = ["apple", "carrot", "bundle_filled"]
+var all_item_list = ["apple", "carrot", "bundle_filled", "cooked_porkchop"]
 #var apl = Dialogic.get_variable("apple")
 
 

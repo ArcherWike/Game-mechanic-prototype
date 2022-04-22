@@ -4,12 +4,12 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Dziekowac"
+			"text": "..."
 		}
 	],
 	"metadata": {
 		"dialogic-version": "1.4.1",
-		"file": "timeline-1650558239.json",
-		"name": "q1-T-delivered"
+		"file": "timeline-1650606594.json",
+		"name": "aq-T-end"
 	}
 }

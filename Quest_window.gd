@@ -14,7 +14,10 @@ func _ready():
 
 func _process(delta):
 	if Globals.current_quest != "":
+		$SmallWindow2.show()
 		$SmallWindow2/quest.set_text(str(Globals.current_quest)+"\n "+str(Quest.get_description(Globals.current_quest)))
+	else:
+		$SmallWindow2.hide()
 
 	match state:
 		small:

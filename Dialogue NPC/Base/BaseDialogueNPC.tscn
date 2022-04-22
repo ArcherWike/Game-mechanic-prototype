@@ -60,6 +60,6 @@ shape = SubResource( 12 )
 
 [node name="keyE" type="Sprite" parent="Interract"]
 modulate = Color( 1, 1, 1, 0.411765 )
-position = Vector2( 21, -36 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 21, -37 )
+scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 3 )

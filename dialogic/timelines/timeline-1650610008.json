@@ -1,0 +1,57 @@
+{
+	"events": [
+		{
+			"character": "character-1649939705.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Witaj lauren. Moglbys mi przyniesc 20 ziemniokuf?"
+		},
+		{
+			"choice": "Oczywiscie",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"emit_signal": "accept_quest",
+			"event_id": "dialogic_040"
+		},
+		{
+			"character": "character-1649939843.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Pewnie, juz ide"
+		},
+		{
+			"character": "character-1649939705.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Dziena"
+		},
+		{
+			"choice": "Nie kce mi sie",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "A ty jestes Lauren niepomocny :C"
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1650610008.json",
+		"name": "L1-bring"
+	}
+}

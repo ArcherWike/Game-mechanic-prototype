@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1649939705.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Gdzie som moje ziemniaki?! Glodny jeste"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1650610320.json",
+		"name": "L2-pending"
+	}
+}
