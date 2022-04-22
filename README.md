@@ -10,6 +10,7 @@ items
 
 more:
 menu (save/load game / options)
+intro
 equipment
 quest system
 
