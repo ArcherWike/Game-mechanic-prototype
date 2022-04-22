@@ -80,6 +80,7 @@ position = Vector2( 1, -26 )
 z_index = 2
 frames = SubResource( 8 )
 animation = "dialog"
+frame = 2
 playing = true
 
 [node name="Interract" type="Area2D" parent="NPC"]
@@ -129,6 +130,7 @@ position = Vector2( -138, -136 )
 
 [node name="Lizard" parent="." instance=ExtResource( 9 )]
 position = Vector2( -103, -58 )
+quest_name = "Lizard glodny. Lizard zly!"
 
 [node name="Quest" parent="Lizard" instance=ExtResource( 11 )]
 

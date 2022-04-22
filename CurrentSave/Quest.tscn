@@ -80,6 +80,7 @@ position = Vector2( 1, -26 )
 z_index = 2
 frames = SubResource( 8 )
 animation = "dialog"
+frame = 1
 playing = true
 
 [node name="Interract" type="Area2D" parent="NPC"]

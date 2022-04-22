@@ -17,3 +17,5 @@ func _on_Entrace_body_entered(body):
 		#self.disabled = false
 
 
+
+

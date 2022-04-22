@@ -354,6 +354,22 @@ shape = SubResource( 9 )
 [node name="Position2D" type="Position2D" parent="GOQuest/Entrace"]
 position = Vector2( 60, 0 )
 
+[node name="GOBlock_movment" type="Node2D" parent="."]
+
+[node name="Entrace" type="Area2D" parent="GOBlock_movment"]
+position = Vector2( 132, 5 )
+rotation = 1.5708
+collision_layer = 32
+collision_mask = 2
+script = ExtResource( 3 )
+scene = "Block_movement"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GOBlock_movment/Entrace"]
+shape = SubResource( 9 )
+
+[node name="Position2D" type="Position2D" parent="GOBlock_movment/Entrace"]
+position = Vector2( 60, 0 )
+
 [connection signal="body_entered" from="Entrace" to="Entrace" method="_on_Entrace_body_entered"]
 [connection signal="body_entered" from="ItemDrop" to="ItemDrop" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="ItemDrop2" to="ItemDrop2" method="_on_Area2D_body_entered"]
@@ -362,3 +378,4 @@ position = Vector2( 60, 0 )
 [connection signal="body_entered" from="ItemDrop5" to="ItemDrop5" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="ItemDrop6" to="ItemDrop6" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="GOQuest/Entrace" to="GOQuest/Entrace" method="_on_Entrace_body_entered"]
+[connection signal="body_entered" from="GOBlock_movment/Entrace" to="GOBlock_movment/Entrace" method="_on_Entrace_body_entered"]

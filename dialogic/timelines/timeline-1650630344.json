@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1649939705.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Przesun tego kloca prosze ladnie"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1650630344.json",
+		"name": "G1-pending"
+	}
+}

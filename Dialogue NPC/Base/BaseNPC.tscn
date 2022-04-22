@@ -27,5 +27,11 @@ self_modulate = Color( 1, 1, 1, 0.572549 )
 position = Vector2( 16, -54 )
 texture = ExtResource( 2 )
 
+[node name="Label" type="Label" parent="."]
+margin_left = -19.0
+margin_top = -54.0
+margin_right = 21.0
+margin_bottom = -40.0
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

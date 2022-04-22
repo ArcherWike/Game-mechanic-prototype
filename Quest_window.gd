@@ -17,7 +17,8 @@ func _process(delta):
 		$SmallWindow2.show()
 		$SmallWindow2/quest.set_text(str(Globals.current_quest)+"\n "+str(Quest.get_description(Globals.current_quest)))
 	else:
-		$SmallWindow2.hide()
+		$SmallWindow2/quest.set_text("Brak questow do wykonania")
+
 
 	match state:
 		small:
