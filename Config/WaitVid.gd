@@ -17,5 +17,5 @@ func _ready():
 
 
 func _on_VideoPlayer_finished():
-	Globals.goto_scene(str("res://CurrentSave/",Globals.saved_scene,".tscn"), false)
+	Globals.goto_scene(str("res://CurrentSave/",Globals.current_scene,".tscn"), false)
 	get_tree().paused = false

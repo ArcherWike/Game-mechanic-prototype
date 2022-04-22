@@ -1,16 +1,26 @@
 extends Node
+#^^^^^^^^^^^^//	Globals //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#__________________________________________________/\__________________________________________
+#								DON'T CHANGE!!!   / I\
+#	Globalne zmienne							 /  I \
+#												/   !  \
+#	funkcje zapisu							   /________\
+#_____________________________________________________________________________________________
+#=============================================================================================
 
-#OPTION
+##########################################################################################
+															#settings options
 var fps_mode = false
 var show_mainMenu = false
-var current_scene = "Center"
-var saved_scene = "Center"
 
+##########################################################################################
+															#loaded scene
+var current_scene = "Center"		#<--- stores current scene
+
+##########################################################################################
 """"
 			SCENE CONFIG
-# Changing scenes is most easily done using the functions `change_scene`
-# and `change_scene_to` of the SceneTree. This script demonstrates how to
-# change scenes without those helpers.
+# save/change scene and copy/ remove files
 """
 
 func save_scene(last_scene):
@@ -106,12 +116,12 @@ func remove_recursive(path):
 	else:
 		print("Error removing " + path)
 
-
-
+###################################################################################################
+###################################################################################################
 
 
 #_________________________________________________________
-#				QUEST SYSTEM
+#				QUEST SYSTEM VARIABLES
 #----------------------------------------------------------
 
 enum QuestStatus {
@@ -121,10 +131,10 @@ enum QuestStatus {
 	COMPLETED,
 }
 
-var quest_list = {}
+var quest_list = {}				#<----stores quests
 
 var quest_status = QuestStatus.NOT_STARTED
 var dialogue_state = 0
-var current_quest = ""
+var current_quest = ""			#<---- stores current quest
 
 ############################################################

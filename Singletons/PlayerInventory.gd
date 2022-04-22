@@ -1,26 +1,37 @@
 extends Node
+#^^^^^^^^^^^^//	PlayerInventory //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#_____________________________________________________________________________________________
+#								
+#	Player inventory funcion and variables		
+#_____________________________________________________________________________________________
+#=============================================================================================
+
 
 const SlotClass = preload("res://Config/Inventory/Slot.gd")
 const ItemClass = preload("res://Objects/Items/equipment/Item.gd")
 
-var NUM_INVENTORY_SLOTS = 20
+var NUM_INVENTORY_SLOTS = 20 #<-- inventory size
 #EQUIPMENT
 
-var Category = {"food": '32', "item": '64', 'coin': '99'}
+var Category = {"food": '32', "item": '64', 'coin': '99'} #category : stack size this category
 
-var all_item_list = ["apple", "carrot", "bundle_filled", "cooked_porkchop"]
+var all_item_list = ["apple", "carrot", "bundle_filled", "cooked_porkchop"]		#inventory items
 #var apl = Dialogic.get_variable("apple")
 
-
+#empty started player inventory- don't change  (will be loaded at startup)
 var inventory = {
 	
 }
 
-#0: ["apple", 20],
-#	1: ["carrot", 30],
-#	2: ["carrot", 30],
-#	3: ["carrot", 30]
 
+#												   /\
+#								DON'T CHANGE!!!   / I\
+#	Player inventory funcion 					 /  I \
+#												/   !  \
+#											   /________\
+#
+
+#-----------------------------------------------------------------------------
 func add_item(item_name, item_quantity):
 	for item in inventory:
 		if inventory[item][0] == item_name:
@@ -41,11 +52,17 @@ func add_item(item_name, item_quantity):
 		if inventory.has(i) == false:
 			inventory[i] = [item_name, item_quantity]
 			return
-
+#-----------------------------------------------------------------------------
 func steal_item(item_name, item_quantity):
 	item_quantity *= -1
 	add_item(item_name, item_quantity)
+#-----------------------------------------------------------------------------
 
+
+
+
+
+#-----------------------------------------------------------------------------
 func load_item_to_inventory():
 	for item_name in all_item_list:
 		print(item_name)
@@ -53,21 +70,11 @@ func load_item_to_inventory():
 		if amount > 0:
 			add_item(str(item_name), amount)
 			print(inventory)
+#-----------------------------------------------------------------------------
 
 
 
-
-
-#func refresh():
-	#Dialogic.set_variable(item_name, int(amount)+quantity)
-#	for item in inventory:
-#		var amount = Dialogic.get_variable(inventory[item][0])
-#		print(inventory[item][0])
-#		inventory[item][1] = amount
-		
-		#inventory[item][1] = String()
-
-
+#-----------------------------------------------------------------------------
 func add_item_to_empty_slot(item: ItemClass, slot: SlotClass):
 	inventory[slot.slot_index] = [item.item_name, item.item_quantity]
 func remove_item(slot: SlotClass):
@@ -75,3 +82,4 @@ func remove_item(slot: SlotClass):
 	
 func add_item_quantity(slot: SlotClass, quantity_to_add: int):
 	inventory[slot.slot_index][1] += quantity_to_add
+#-----------------------------------------------------------------------------
