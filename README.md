@@ -11,6 +11,7 @@ items
 more:
 menu (save/load game / options)
 intro
+![](https://github.com/ArcherWike/contents/blob/main/intro.gif)
 equipment
 quest system
 
