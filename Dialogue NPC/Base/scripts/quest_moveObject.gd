@@ -41,8 +41,8 @@ func run_dialog(Dialog_Timeline):
 		
 	
 #----------------- Dialog signal- visible quest in interface small
-func dialogic_signal(arg):
-	if arg == str(Quest_name)+"-accept_quest":
+func dialogic_signal(arg):#str(Quest_name)+
+	if arg == "Gnom-accept_quest":
 		Quest.accept_quest(Quest_name, Description)
 		Globals.current_quest = Quest_name
 

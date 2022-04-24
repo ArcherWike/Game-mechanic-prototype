@@ -1,52 +1,52 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Config/Levels.gd" type="Script" id=1]
+[ext_resource path="res://Config/TitleScreen/Entrace.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
-[ext_resource path="res://Config/TitleScreen/Entrace.gd" type="Script" id=3]
-[ext_resource path="res://Config/SceneEntrace.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/Mechanisms/door/door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Config/Levels.gd" type="Script" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Mechanisms/door/door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Config/SceneEntrace.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Cutscene/cutscene.gd" type="Script" id=7]
 
 [node name="Door" type="Node2D"]
 position = Vector2( -1, 2 )
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
-[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 5 )]
-position = Vector2( 361.61, 65.6441 )
+[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 358, 64 )
 collision_layer = 2
 collision_mask = 61
 script = ExtResource( 2 )
 
-[node name="door" type="KinematicBody2D" parent="." instance=ExtResource( 6 )]
+[node name="door" type="KinematicBody2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( 560, 95 )
 scale = Vector2( 0.7, 0.7 )
 script = ExtResource( 7 )
 
-[node name="Entrace" type="Area2D" parent="door" instance=ExtResource( 4 )]
+[node name="Entrace" type="Area2D" parent="door" instance=ExtResource( 6 )]
 position = Vector2( 35.7142, 8.57144 )
 rotation = 3.14159
 scale = Vector2( 1, 0.8 )
 collision_layer = 32
 collision_mask = 2
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 scene = "Lever"
 
-[node name="Entrace" type="Area2D" parent="." instance=ExtResource( 4 )]
+[node name="Entrace" type="Area2D" parent="." instance=ExtResource( 6 )]
 position = Vector2( 13, 105 )
 collision_layer = 32
 collision_mask = 2
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 scene = "Center"
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="Entrace" type="Area2D" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Entrace" type="Area2D" parent="Node2D" instance=ExtResource( 6 )]
 position = Vector2( 359, 7 )
 rotation = 1.5708
 collision_layer = 32
 collision_mask = 2
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 scene = "Colect"
 
 [connection signal="body_entered" from="door/Entrace" to="door/Entrace" method="_on_Entrace_body_entered"]

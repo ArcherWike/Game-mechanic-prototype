@@ -24,13 +24,15 @@ func run_quest_collect(quest_name, description, item_name, required_amount, d_br
 	Description = description
 	var quest_status = Quest.get_status(quest_name)
 	match quest_status:
-		Globals.QuestStatus.NONEXISTENT:
+		Globals.QuestStatus.NONEXISTENT:		
 			run_dialog(d_bring)
 		Globals.QuestStatus.STARTED:
 			if int(Dialogic.get_variable(item_name)) >= required_amount:
 				run_dialog(d_delivered)
 				var amount = Dialogic.get_variable(item_name)
 				Dialogic.set_variable(item_name, int(amount)- required_amount)
+				
+			
 				Quest.change_status(quest_name, Globals.QuestStatus.COMPLETED)
 				Globals.current_quest = ""
 			else:

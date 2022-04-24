@@ -2,19 +2,19 @@
 
 [ext_resource path="res://Config/TitleScreen/Entrace.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Objects/Mechanisms/door/door3.png" type="Texture" id=4]
-[ext_resource path="res://Objects/Mechanisms/door/door1.png" type="Texture" id=5]
-[ext_resource path="res://Objects/Mechanisms/lever/on.png" type="Texture" id=6]
-[ext_resource path="res://Objects/Mechanisms/door/door2.png" type="Texture" id=7]
-[ext_resource path="res://Objects/Mechanisms/lever/off.png" type="Texture" id=8]
-[ext_resource path="res://Objects/Mechanisms/door/door4.png" type="Texture" id=9]
-[ext_resource path="res://Objects/Mechanisms/lever/lever.gd" type="Script" id=10]
+[ext_resource path="res://Objects/Mechanisms/lever/on.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Mechanisms/door/door2.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Mechanisms/lever/off.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Mechanisms/door/door1.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Mechanisms/door/door3.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Mechanisms/door/door4.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Mechanisms/lever/lever.gd" type="Script" id=9]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Config/SceneEntrace.tscn" type="PackedScene" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "door",
 "speed": 15.0
@@ -31,7 +31,7 @@ extents = Vector2( 6.07146, 75 )
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "default",
 "speed": 15.0
@@ -39,8 +39,8 @@ animations = [ {
 
 [node name="Lever" type="Node2D"]
 
-[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 54.2917, 110 )
+[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 10 )]
+position = Vector2( 559.089, 119.844 )
 collision_layer = 2
 collision_mask = 61
 script = ExtResource( 2 )
@@ -55,16 +55,18 @@ scene = "Door"
 [node name="lever door" type="KinematicBody2D" parent="."]
 position = Vector2( 599, 108 )
 scale = Vector2( 0.7, 0.7 )
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 
 [node name="DoorAnimated" type="AnimatedSprite" parent="lever door"]
 position = Vector2( 2.85721, -12.8571 )
 frames = SubResource( 1 )
 animation = "door"
+frame = 3
 
 [node name="CloseDoorCollision" type="CollisionShape2D" parent="lever door"]
 position = Vector2( -2.85718, 12.8572 )
 shape = SubResource( 2 )
+disabled = true
 
 [node name="Area2D" type="Area2D" parent="lever door"]
 position = Vector2( 6.64291, -17.25 )
@@ -82,6 +84,7 @@ position = Vector2( -241.429, 112.857 )
 rotation = 1.5708
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 5 )
+frame = 1
 
 [node name="Node2D" type="Node2D" parent="."]
 

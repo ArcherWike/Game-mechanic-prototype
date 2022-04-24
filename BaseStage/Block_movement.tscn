@@ -68,7 +68,43 @@ d_end = "/Testing_levels/Quest/Gnom/G1-end"
 [node name="Quest" parent="Gnom" index="4" instance=ExtResource( 4 )]
 script = ExtResource( 6 )
 
-[node name="Area2D" type="Area2D" parent="." index="4"]
+[node name="Gnom2" parent="." index="4" instance=ExtResource( 5 )]
+position = Vector2( 498, 42 )
+quest_name = "Pan"
+description = "Quest NPC Pan"
+d_bring = "/Testing_levels/Quest/Gnom/G1-accept"
+d_pending = "/Testing_levels/Quest/Gnom/G1-pending"
+d_delivered = "/Testing_levels/Quest/Gnom/G1-moved"
+d_end = "/Testing_levels/Quest/Gnom/G1-end"
+
+[node name="Quest" parent="Gnom2" index="4" instance=ExtResource( 4 )]
+script = ExtResource( 6 )
+
+[node name="Gnom3" parent="." index="5" instance=ExtResource( 5 )]
+position = Vector2( 103, 177 )
+quest_name = "Lizard"
+description = "hejo to quest lizarda"
+d_bring = "/Testing_levels/Quest/Gnom/G1-accept"
+d_pending = "/Testing_levels/Quest/Gnom/G1-pending"
+d_delivered = "/Testing_levels/Quest/Gnom/G1-moved"
+d_end = "/Testing_levels/Quest/Gnom/G1-end"
+
+[node name="Quest" parent="Gnom3" index="4" instance=ExtResource( 4 )]
+script = ExtResource( 6 )
+
+[node name="Gnom4" parent="." index="6" instance=ExtResource( 5 )]
+position = Vector2( 324, 270 )
+quest_name = "Tedy"
+description = "jeste tedy"
+d_bring = "/Testing_levels/Quest/Gnom/G1-accept"
+d_pending = "/Testing_levels/Quest/Gnom/G1-pending"
+d_delivered = "/Testing_levels/Quest/Gnom/G1-moved"
+d_end = "/Testing_levels/Quest/Gnom/G1-end"
+
+[node name="Quest" parent="Gnom4" index="4" instance=ExtResource( 4 )]
+script = ExtResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="." index="7"]
 position = Vector2( 217, 276 )
 script = ExtResource( 7 )
 QuestName = "Gnom"

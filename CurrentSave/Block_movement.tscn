@@ -1,16 +1,16 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Player/icon.png" type="Texture" id=1]
+[ext_resource path="res://Dialogue NPC/Gnom/Gnom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Dialogue NPC/Base/Quest.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Config/Levels.gd" type="Script" id=3]
-[ext_resource path="res://Player/Player.gd" type="Script" id=4]
-[ext_resource path="res://Config/TitleScreen/Entrace.gd" type="Script" id=5]
-[ext_resource path="res://Objects/Mechanisms/door/door1.png" type="Texture" id=6]
-[ext_resource path="res://Dialogue NPC/Gnom/Gnom.tscn" type="PackedScene" id=7]
-[ext_resource path="res://BaseNPC.gd" type="Script" id=8]
-[ext_resource path="res://Objects/Mechanisms/BlockMovment/BlockMovment.gd" type="Script" id=9]
-[ext_resource path="res://Dialogue NPC/Base/scripts/quest_moveObject.gd" type="Script" id=10]
-[ext_resource path="res://Objects/Mechanisms/BlockMovment/targetObject.gd" type="Script" id=11]
+[ext_resource path="res://Player/icon.png" type="Texture" id=3]
+[ext_resource path="res://Config/TitleScreen/Entrace.gd" type="Script" id=4]
+[ext_resource path="res://Player/Player.gd" type="Script" id=5]
+[ext_resource path="res://Config/Levels.gd" type="Script" id=6]
+[ext_resource path="res://Objects/Mechanisms/door/door1.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Mechanisms/BlockMovment/BlockMovment.gd" type="Script" id=8]
+[ext_resource path="res://Objects/Mechanisms/BlockMovment/targetObject.gd" type="Script" id=9]
+[ext_resource path="res://BaseNPC.gd" type="Script" id=10]
+[ext_resource path="res://Dialogue NPC/Base/scripts/quest_moveObject.gd" type="Script" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.5, 32.5 )
@@ -31,16 +31,16 @@ extents = Vector2( 13.5, 37.5 )
 
 [node name="Block_movement" type="Node2D"]
 position = Vector2( 2, 3 )
-script = ExtResource( 3 )
+script = ExtResource( 6 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 63, 147 )
+position = Vector2( 63.0972, 147 )
 collision_layer = 2
 collision_mask = 61
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Player"]
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( 0, 1 )
@@ -59,7 +59,7 @@ shape = SubResource( 2 )
 position = Vector2( 6, 144 )
 collision_layer = 32
 collision_mask = 2
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 scene = "Center"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entrace"]
@@ -69,8 +69,8 @@ shape = SubResource( 3 )
 position = Vector2( 60, 0 )
 
 [node name="BlockMovmentObject" type="KinematicBody2D" parent="."]
-position = Vector2( 216, 58 )
-script = ExtResource( 9 )
+position = Vector2( 216, 53.5 )
+script = ExtResource( 8 )
 speed = 0.5
 direction = 1
 
@@ -101,11 +101,11 @@ modulate = Color( 0.164706, 0.164706, 0.164706, 1 )
 self_modulate = Color( 0.792157, 0.788235, 0.843137, 1 )
 position = Vector2( 0, -13 )
 scale = Vector2( 0.3, 0.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
-[node name="Gnom" type="KinematicBody2D" parent="." instance=ExtResource( 7 )]
+[node name="Gnom" type="KinematicBody2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 535, 222 )
-script = ExtResource( 8 )
+script = ExtResource( 10 )
 quest_name = "Gnom"
 required_amount = 20
 item_name = "if collect"
@@ -116,11 +116,11 @@ d_delivered = "/Testing_levels/Quest/Gnom/G1-moved"
 d_end = "/Testing_levels/Quest/Gnom/G1-end"
 
 [node name="Quest" type="Node2D" parent="Gnom" instance=ExtResource( 2 )]
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 217, 276 )
-script = ExtResource( 11 )
+script = ExtResource( 9 )
 NameObject = "BlockMovmentObject"
 QuestName = "Gnom"
 

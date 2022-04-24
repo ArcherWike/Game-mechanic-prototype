@@ -1,20 +1,20 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Dialogue NPC/Lizard/Lizard.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Dialogue NPC/Base/Quest.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Dialogue NPC/Base/BaseNPC.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Config/ItemDrop.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Player/Player.gd" type="Script" id=6]
-[ext_resource path="res://Config/TitleScreen/Entrace.gd" type="Script" id=7]
-[ext_resource path="res://Config/Levels.gd" type="Script" id=8]
-[ext_resource path="res://icon.png" type="Texture" id=9]
-[ext_resource path="res://Dialogue NPC/Base/keyE.png" type="Texture" id=10]
-[ext_resource path="res://Dialogue NPC/Base/dialog In (24x8).png" type="Texture" id=11]
-[ext_resource path="res://Objects/Items/ItemDrop.gd" type="Script" id=12]
-[ext_resource path="res://Dialogue NPC/Base/BaseDialogueNPC.gd" type="Script" id=13]
-[ext_resource path="res://BaseNPC.gd" type="Script" id=14]
-[ext_resource path="res://Dialogue NPC/Base/scripts/quest_collect.gd" type="Script" id=15]
+[ext_resource path="res://Config/TitleScreen/Entrace.gd" type="Script" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Dialogue NPC/Base/keyE.png" type="Texture" id=4]
+[ext_resource path="res://Dialogue NPC/Base/dialog In (24x8).png" type="Texture" id=5]
+[ext_resource path="res://Dialogue NPC/Base/scripts/quest_collect.gd" type="Script" id=6]
+[ext_resource path="res://Config/Levels.gd" type="Script" id=7]
+[ext_resource path="res://Objects/Items/ItemDrop.gd" type="Script" id=8]
+[ext_resource path="res://Dialogue NPC/Base/BaseDialogueNPC.gd" type="Script" id=9]
+[ext_resource path="res://BaseNPC.gd" type="Script" id=10]
+[ext_resource path="res://Config/ItemDrop.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Dialogue NPC/Base/Quest.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Dialogue NPC/Lizard/Lizard.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Dialogue NPC/Base/BaseNPC.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.5, 59 )
@@ -24,17 +24,17 @@ extents = Vector2( 31.5, 30 )
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
-atlas = ExtResource( 11 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 34, 16 )
 
 [sub_resource type="AtlasTexture" id=10]
 flags = 4
-atlas = ExtResource( 11 )
+atlas = ExtResource( 5 )
 region = Rect2( 34, 0, 34, 16 )
 
 [sub_resource type="AtlasTexture" id=11]
 flags = 4
-atlas = ExtResource( 11 )
+atlas = ExtResource( 5 )
 region = Rect2( 68, 0, 34, 16 )
 
 [sub_resource type="SpriteFrames" id=8]
@@ -50,19 +50,19 @@ radius = 80.025
 
 [node name="@Quest@3" type="Node2D"]
 position = Vector2( 230, 124 )
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 
-[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 79, 121 )
+[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 13 )]
+position = Vector2( 82.4276, 117.884 )
 collision_layer = 2
 collision_mask = 125
-script = ExtResource( 6 )
+script = ExtResource( 2 )
 
 [node name="Entrace" type="Area2D" parent="."]
 position = Vector2( -206, -3 )
 collision_layer = 32
 collision_mask = 2
-script = ExtResource( 7 )
+script = ExtResource( 1 )
 scene = "Colect"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entrace"]
@@ -76,7 +76,7 @@ position = Vector2( 235, 4 )
 
 [node name="NPCSprite" type="Sprite" parent="NPC"]
 self_modulate = Color( 1, 0.380392, 0.380392, 1 )
-texture = ExtResource( 9 )
+texture = ExtResource( 3 )
 
 [node name="NPCCollision" type="CollisionShape2D" parent="NPC"]
 position = Vector2( -1.5, 1 )
@@ -87,11 +87,11 @@ position = Vector2( 1, -26 )
 z_index = 2
 frames = SubResource( 8 )
 animation = "dialog"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Interract" type="Area2D" parent="NPC"]
-script = ExtResource( 13 )
+script = ExtResource( 9 )
 Dialog_Timeline = "Test"
 quest_name = "Quest TesterNPC"
 required_amount = 10
@@ -107,41 +107,35 @@ visible = false
 modulate = Color( 1, 1, 1, 0.411765 )
 position = Vector2( 12.55, -43 )
 scale = Vector2( 1.00476, 0.9 )
-texture = ExtResource( 10 )
+texture = ExtResource( 4 )
 
-[node name="ItemDrop" type="Area2D" parent="." instance=ExtResource( 5 )]
+[node name="ItemDrop" type="Area2D" parent="." instance=ExtResource( 11 )]
 position = Vector2( 59, 132 )
-script = ExtResource( 12 )
+script = ExtResource( 8 )
 item_name = "carrot"
 quantity = 7
 
-[node name="ItemDrop2" type="Area2D" parent="." instance=ExtResource( 5 )]
+[node name="ItemDrop2" type="Area2D" parent="." instance=ExtResource( 11 )]
 position = Vector2( 227, 123 )
-script = ExtResource( 12 )
+script = ExtResource( 8 )
 item_name = "carrot"
 quantity = 7
 
-[node name="ItemDrop3" type="Area2D" parent="." instance=ExtResource( 5 )]
-position = Vector2( -67, 140 )
-script = ExtResource( 12 )
-item_name = "carrot"
-quantity = 6
-
-[node name="ItemDrop4" type="Area2D" parent="." instance=ExtResource( 5 )]
+[node name="ItemDrop4" type="Area2D" parent="." instance=ExtResource( 11 )]
 position = Vector2( 18, -91 )
-script = ExtResource( 12 )
+script = ExtResource( 8 )
 item_name = "carrot"
 quantity = 4
 
-[node name="ItemDrop5" type="Area2D" parent="." instance=ExtResource( 5 )]
+[node name="ItemDrop5" type="Area2D" parent="." instance=ExtResource( 11 )]
 position = Vector2( 150, -85 )
-script = ExtResource( 12 )
+script = ExtResource( 8 )
 item_name = "carrot"
 quantity = 5
 
-[node name="BaseNPC" type="KinematicBody2D" parent="." instance=ExtResource( 4 )]
+[node name="BaseNPC" type="KinematicBody2D" parent="." instance=ExtResource( 15 )]
 position = Vector2( 138, 136 )
-script = ExtResource( 14 )
+script = ExtResource( 10 )
 quest_name = ""
 required_amount = 20
 item_name = "if collect"
@@ -151,15 +145,15 @@ d_pending = "/Testing_levels/Quest/Lizard/L2-pending"
 d_delivered = "/Testing_levels/Quest/Lizard/L3-delivered"
 d_end = "/Testing_levels/Quest/Lizard/L4-end"
 
-[node name="Quest" type="Node2D" parent="BaseNPC" instance=ExtResource( 3 )]
+[node name="Quest" type="Node2D" parent="BaseNPC" instance=ExtResource( 12 )]
 position = Vector2( -138, -136 )
-script = ExtResource( 15 )
+script = ExtResource( 6 )
 Quest_name = ""
 Description = ""
 
-[node name="Lizard" type="KinematicBody2D" parent="." instance=ExtResource( 2 )]
+[node name="Lizard" type="KinematicBody2D" parent="." instance=ExtResource( 14 )]
 position = Vector2( -103, -58 )
-script = ExtResource( 14 )
+script = ExtResource( 10 )
 quest_name = "Lizard glodny. Lizard zly!"
 required_amount = 20
 item_name = "if collect"
@@ -169,8 +163,8 @@ d_pending = "/Testing_levels/Quest/Lizard/L2-pending"
 d_delivered = "/Testing_levels/Quest/Lizard/L3-delivered"
 d_end = "/Testing_levels/Quest/Lizard/L4-end"
 
-[node name="Quest" type="Node2D" parent="Lizard" instance=ExtResource( 3 )]
-script = ExtResource( 15 )
+[node name="Quest" type="Node2D" parent="Lizard" instance=ExtResource( 12 )]
+script = ExtResource( 6 )
 Quest_name = ""
 Description = ""
 
@@ -179,6 +173,5 @@ Description = ""
 [connection signal="body_exited" from="NPC/Interract" to="NPC/Interract" method="_on_Interract_body_exited"]
 [connection signal="body_entered" from="ItemDrop" to="ItemDrop" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="ItemDrop2" to="ItemDrop2" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="ItemDrop3" to="ItemDrop3" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="ItemDrop4" to="ItemDrop4" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="ItemDrop5" to="ItemDrop5" method="_on_Area2D_body_entered"]

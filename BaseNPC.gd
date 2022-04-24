@@ -7,7 +7,7 @@ var active = false
 #export(String) var Dialog_Timeline
 export(String) var quest_name
 export(int) var required_amount = 20
-export(String) var item_name = "if collect"
+export(String) var item_name 
 export(String) var description
 
 export(String) var d_bring = "/Testing_levels/Quest/Lizard/L1-bring"

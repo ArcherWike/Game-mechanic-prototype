@@ -138,3 +138,9 @@ var dialogue_state = 0
 var current_quest = ""			#<---- stores current quest
 
 ############################################################
+#run_dialog(d_delivered)
+				#var amount = Dialogic.get_variable(item_name)
+				#Dialogic.set_variable(item_name, int(amount)- required_amount)
+				
+				
+
